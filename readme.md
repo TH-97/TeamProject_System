@@ -1,2 +1,3 @@
 ## team project repo
-###project is a student manager system
+<h3>project is a student manager system</h3>
+
