@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,eclipse,macos,intellij+iml
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,eclipse,macos,intellij+iml
 
+application.properties
 ### Eclipse ###
 .metadata
 bin/
