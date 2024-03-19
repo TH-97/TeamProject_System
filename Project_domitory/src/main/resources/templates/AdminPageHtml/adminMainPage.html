@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-treeview/1.4.2/jquery.treeview.min.js"></script>-->
+
+  <link rel="stylesheet" href="/css/AdminPageCss/jquery.tree-view.css" />
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+  <script src="/js/jquery.treeview.js" type="text/javascript"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/AdminPageCss/adminMainPage.css">
+</head>
+<body>
+  <aside id="aside">
+    <h2>중앙정보 대학교</h2>
+    <br>
+    <h3>관리자 페이지</h3>
+    <br>
+    <nav id="nav">
+      <div class="category">
+        <ul id="tree">
+          <li><span>학생 관리</span>
+            <ul>
+              <li><span>학생 입주 정보 조회</span></li>
+              <li><span>외박 및 퇴실 신청 조회</span></li>
+              <li><span id="penaltyDetails">벌점 내역 조회</span></li>
+              
+            </ul>
+            <li><span>호실 관리</span>
+              <ul>
+                  <li><span id="dayManage">호실정보 관리</span></li>
+                    <li><span>남자관</span>
+                      <ul>
+                        <li><span id="floor">1층</span></li>
+                        <li><span id="floor2">2층</span></li>
+                        <li><span id="floor3">3층</span></li>
+                      </ul>
+                    </li>
+
+                    <li><span>여자관</span>
+                      <ul>
+                        <li><span>1층</span></li>
+                        <li><span>2층</span></li>
+                        <li><span>3층</span></li>
+                      </ul>
+                    </li>
+              </ul>
+            </li>
+            <li><span>게시판 관리</span>
+              <ul>
+              <li><span id="suggestInquiry">게시물 내역</span></li>
+              <li><span>기상송 조회</span></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+  </aside>
+  <iframe id="main" src="adminHtml/null.html" style="border: none">
+  </iframe>
+  <script type="text/javascript" src="/js/AdminPageJs/adminMainPage.js"></script>
+
+</body>
+
+</html>

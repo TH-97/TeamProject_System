@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.project.domitory.Adminpage.mapper.StudentMapper">
+    <select id="getname" resultType="StudentVO">
+        SELECT mvn_aply.stud_no, ALTMNT_RM_CD, STUDENT.user_nm , stts_clsf,STUDENT.gndr_nm
+        FROM mvn_aply
+                 JOIN STUDENT ON mvn_aply.stud_no = STUDENT.stud_no
+        WHERE STUDENT.user_nm = #{user_nm};
+    </select>
+
+    <select id="getBuliding" resultType="BuildingVO">
+        select *
+        from BLDG_INFO where bldg_nm = #{bldg_nm};
+    </select>
+
+    <select id="getFloor" resultType="FloorVO">
+        select rm.rm_cd , rm.actc_nope , rm.altmnt_nope
+        from mvn_rm as rm
+                 join rm_info on rm.rm_cd = rm_info.rm_cd
+        where rm_info.bldg_cd =  #{bldg_cd};
+    </select>
+</mapper>

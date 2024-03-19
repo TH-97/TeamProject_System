@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/AdminPageCss/allList.css">
+</head>
+<body>
+<div class="category2">
+<table>
+    <tr>
+        <th>호실</th>
+        <th>배정인원</th>
+        <th>수용인원</th>
+    </tr>
+    <tr th:each="list : ${list} " >
+        <td th:text="${list.rm_cd}"></td>
+        <td th:text="${list.altmnt_nope}"></td>
+        <td th:text="${list.actc_nope}"></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
