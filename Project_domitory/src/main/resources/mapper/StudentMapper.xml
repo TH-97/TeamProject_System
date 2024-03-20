@@ -23,4 +23,28 @@
                  join rm_info on rm.rm_cd = rm_info.rm_cd
         where rm_info.bldg_cd =  #{bldg_cd};
     </select>
+
+    <update id="setRoom2">
+        update MVN_RM set ALTMNT_NOPE = ALTMNT_NOPE + 1
+        where rm_cd = #{altmnt_rm_cd};
+    </update>
+    <update id="setRoom">
+        update MVN_APLY set ALTMNT_RM_CD = #{altmnt_rm_cd} ,STTS_CLSF = 4,ALTMNT_YMD = DATE_FORMAT(NOW(), '%Y%m%d'), MVN_YMD = DATE_FORMAT(NOW(), '%Y%m%d')
+        where STUD_NO = #{stud_no};
+    </update>
+
+    <select id="getUser" resultType="AutoVO">
+        select * from mvn_aply where stts_clsf;
+    </select>
+
+    <select id="getGndr" resultType="AutoVO">
+        select gndr_nm from student where stud_no = #{stud_no};
+    </select>
+
+    <select id="getRoom" resultType="AutoVO">
+        select * from rm_info
+            join mvn_rm on rm_info.rm_cd = mvn_rm.rm_cd
+        where gndr_clsf = "1";
+    </select>
+
 </mapper>

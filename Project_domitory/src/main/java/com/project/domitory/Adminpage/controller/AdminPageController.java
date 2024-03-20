@@ -2,6 +2,7 @@ package com.project.domitory.Adminpage.controller;
 
 import com.project.domitory.Adminpage.command.BuildingVO;
 import com.project.domitory.Adminpage.command.FloorVO;
+
 import com.project.domitory.Adminpage.command.StudentVO;
 import com.project.domitory.Adminpage.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,8 +58,22 @@ public class AdminPageController {
         vo.setBldg_cd(bldg_cd);
         List<FloorVO> list = studentService.getFloor(vo);
         model.addAttribute("list",list);
-        System.out.println(list.toString());
         return "AdminPageHtml/room";
+    }
+    @PostMapping("/modify")
+    public String test4(@RequestParam("stud_no")String stud_no,
+                        @RequestParam("name")String name,
+                        @RequestParam("altmnt_rm_cd")String altmnt_rm_cd
+    ){
+        studentService.setRoom(altmnt_rm_cd,stud_no);
+        studentService.setRoom2(altmnt_rm_cd);
+        return "AdminPageHtml/room";
+    }
+
+    @PostMapping("/test")
+    public String test5(){
+        studentService.auto();
+        return "AdminPageHtml/roomAssignment";
     }
 
 }
