@@ -1,4 +1,4 @@
-package com.project.domitory.Adminpage.command;
+package com.project.domitory.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
