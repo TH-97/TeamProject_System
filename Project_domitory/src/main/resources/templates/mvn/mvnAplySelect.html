@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/allList.css">
+
+</head>
+
+<body>
+
+	<h3>학생 입주 정보 조회</h3>
+	<hr>
+	<div id="listArea">
+		<div id="lookUpBtn" style="float: right; padding: 10px;">
+			<form action="/mvnAplySelect" method="get">
+				입주모집번호 : <select name="MVN_RCRT_NO">
+					<option value="202403">202403</option>
+				</select> <br> 신청구분 : <select name="STTS_CLSF" style="margin-top: 10px;">
+					<option value="0">전체</option>
+					<option value="1">신청</option>
+					<option value="2">선발실패</option>
+					<option value="3">선발</option>
+					<option value="4">배정</option>
+					<option value="5">입주</option>
+					<option value="6">퇴실</option>
+				</select> <br> <br> <input type="text" name="USER_NM"
+					placeholder="이름,전체조회(미입력)"> <input type="submit" value="검색">
+			</form>
+		</div>
+
+		<table style="margin-top: 30px; width: 100%;">
+			<tr>
+				<th>조회 내역</th>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="detailsList">
+
+						<table id="ListTable">
+							<thead>
+								<tr>
+									<th>입주모집번호</th>
+									<th>학번</th>
+									<th>이름</th>
+									<th>호실</th>
+									<th>상태구분</th>
+									<th>신청일자</th>
+									<th>선발일자</th>
+									<th>배정일자</th>
+									<th>입주일자</th>
+									<th>퇴실입자</th>
+									<th>퇴실구분</th>
+									<th>상벌총점</th>
+									<th>비고</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="vo : ${list}">
+									<td>[[${vo.MVN_RCRT_NO}]]</td>
+									<td>[[${vo.STUD_NO}]]</td>
+									<td>[[${vo.USER_NM}]]</td>
+									<td>[[${vo.ALTMNT_RM_CD}]]</td>
+									<td>[[${vo.STTS_CLSF == '1' ? '신청' : ''}]]
+										[[${vo.STTS_CLSF == '2' ? '선발실패' : ''}]]
+										 [[${vo.STTS_CLSF =='3' ? '선발' : ''}]]
+										  [[${vo.STTS_CLSF == '4' ? '배정' : ''}]]
+										[[${vo.STTS_CLSF == '5' ? '입주' : ''}]] 
+										[[${vo.STTS_CLSF == '6' ? '퇴사' : ''}]]</td>
+									<td>[[${vo.APLY_YMD}]]</td>
+									<td>[[${vo.CONF_YMD}]]</td>
+									<td>[[${vo.ALTMNT_YMD}]]</td>
+									<td>[[${vo.MVN_YMD}]]</td>
+									<td>[[${vo.DEP_YMD}]]</td>
+									<td>[[${vo.DEP_CLSF == '1' ? '퇴실안함' : ''}]]
+										[[${vo.DEP_CLSF == '2' ? '만기' : ''}]] [[${vo.DEP_CLSF == '3' ?
+										'중도' : ''}]] [[${vo.DEP_CLSF == '4' ? '벌점' : ''}]]</td>
+									<td>[[${vo.PN_PNT}]] 점</td>
+									<!--<td> <button onclick="modalOpen()">상벌주기</button> </td>-->
+									<td>[[${vo.RMRK}]]</td>
+								</tr>
+
+
+
+
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+
+		<iframe id="aplyDetail" src=""
+			style="width: 100%; height: 850px; border: none;" scrolling="no">
+		</iframe>
+
+
+
+		<script>
+			var detail = document.querySelector("#ListTable > tbody");
+			var aplyDetail = document.querySelector("#aplyDetail");
+			detail.onclick = function() {
+				console.log(event.target.tagName);
+				if (event.target.tagName != "TD")
+					return;
+
+				var mvnRcrtNo = event.target.parentElement.children[0].innerText;
+				var studNo = event.target.parentElement.children[1].innerText;
+				console.log(mvnRcrtNo);
+				console.log(studNo);
+
+				aplyDetail.setAttribute('src',`/mvnAplySelectDetail?&MVN_RCRT_NO=${mvnRcrtNo}&STUD_NO=${studNo}`);
+			}
+		</script>
+
+
+		<style>
+#ListTable tbody tr:hover {
+	background-color: #e3e3e3;
+	cursor: pointer;
+}
+</style>
+</body>
+
+</html>

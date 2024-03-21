@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	여기는 메인페이지	
+</body>
+
+<script th:inline="javascript">
+	var msg = [[${msg}]];
+	if(msg != null){
+		alert(msg);
+	}
+</script>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기숙사신청</title>
+  <script src="/js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <section id="mvn_section" >
+    
+      <form action="mvnInsert" method="post">
+      <div class="mvn_apply_container">
+          <div class="mvn_apply_header">
+            <h1>기숙사 신청서</h1>
+            <p>1학년 신청기간 : 2024.03.14 10:00 ~ 2024.03.15 16 : 00</p>
+            <p>나머지학년 신청기간 : 2024.03.16 10:00 ~ 2024.03.17 16 : 00</p>
+          </div>
+          <div class="mvn_apply_detail">
+            
+              <h1>신청 정보</h1>
+              <span>모집년도/학기 : </span>
+              <select name="MVN_RCRT_NO">
+                <option value="202307" disabled>2023년 2학기</option>
+                <option value="202403" >2024년 1학기</option>
+              </select>
+            
+             
+          
+          </div>
+
+       		<div class="mvn_apply_user">
+             <h1>학생 정보</h1>
+             <p>성명 : [[${userVO.user_nm}]]</p>
+             <p>학번 : [[${userVO.stud_no}]]</p>
+             <p>성별 : [[${userVO.gndr_nm}]]</p>
+             <p>학점 : [[${userVO.snths_scr}]]</p>
+             <p>학년 : [[${userVO.stud_gr}]]</p>
+             <p>학과 : [[${userVO.mj}]]
+             <p>전화번호 : [[${userVO.stud_pn}]]</p>
+             <p>벌점 : [[${userVO.pn_pnt}]]
+             <p>주소 : [[${userVO.stud_ad}]]</p>
+             집에서 학교거리(m) : <input type="number" name="distance" id="distance"  th:value="${userVO.stud_dist}" readonly="readonly"> [나중에 input:hidden처리]
+          </div>
+       		
+          <div class="mvn_apply_footer">
+              <h3>위 본인은 학생기숙사에 입사하고자 하오니 허가 해주시기 바랍니다.</h3>
+          </div>
+
+
+            <input type="submit" value="신청하기">
+         
+  
+      </div>
+
+
+    </form>
+
+    </section>
+</body>
+</html>
+
+
+<style >
+  body{
+    background-color:  #97cffd;
+  }
+
+  #mvn_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .mvn_apply_header > h1{
+    font-size: 36px;
+  }
+  .mvn_apply_container > div:first-child{
+    border-top: 20px solid #254dcf;
+  }
+  .mvn_apply_container > div{
+    border-radius: 15px;
+    width: 1000px;
+    padding: 1% 5%;
+    margin-bottom: 20px;
+    background-color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  }
+  .mvn_apply_detail  {
+    border-left: 15px solid #254dcf;
+    box-sizing: border-box;
+    
+  }
+  .mvn_apply_detail select{
+    margin-bottom: 15px;
+  }
+
+  .mvn_apply_container input[type="submit"]{
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+    background-color: #254dcf;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+  }
+
+  
+  
+
+</style>
+
+
+
+<script>
+  //학교 WTM X, Y값
+  var universityWTMX = 202694.61000000135;
+  var universityWTMY = 444463.60999921197;
+
+  //학생 위치 구하기
+  (async function(){
+    //학생 경도, 위도
+    var studentLocX;
+    var studentLocY;
+
+    //학생 WTM X, Y값
+    var studentWTMX;
+    var studentWTMY;
+
+    var distance;
+
+    await $.ajax({
+    method : "GET",
+    url : "https://dapi.kakao.com/v2/local/search/address.json?",
+    data : {query : "경기도 시흥시 대야동"}, //나중에 학생주소 데이터 서버에서 받아서 여기에 넣으면됨
+    headers : {Authorization : "KakaoAK a9194dac4b530f903a4cccffd29987a0"},
+    success : function(data){
+      console.log("경도 : " + data.documents[0].x);
+      console.log("위도 : " + data.documents[0].y);
+
+      studentLocX = data.documents[0].x;
+      studentLocY = data.documents[0].y;
+      
+    },
+    error : function(err, status){
+      console.log(err);
+      console.log(status);
+    }
+    
+  })
+
+  await $.ajax({
+    method : "GET",
+    url : "https://dapi.kakao.com/v2/local/geo/transcoord.json?",
+    data : {
+      x : studentLocX,
+      y	: studentLocY,
+      output_coord : "WTM"
+    
+    },
+    headers : {Authorization : "KakaoAK a9194dac4b530f903a4cccffd29987a0"},
+    success : function(data){
+      console.log("wtm : " + data.documents[0].x);
+      console.log("wtm : " + data.documents[0].y);
+      studentWTMX = data.documents[0].x;
+      studentWTMY = data.documents[0].y;
+
+      distance = Math.ceil(CalculateDistance(studentWTMX, studentWTMY, universityWTMX, universityWTMY));
+      console.log("학교에서 학생집주소 거리 : " + distance + "m");
+      document.querySelector("#distance").value = distance;
+    },
+    error : function(err, status){
+      console.log(err);
+      console.log(status);
+    }
+    
+  })
+  
+  })()
+
+  //두 위치 사이의 거리
+  function CalculateDistance(studX, studY, univX, univY){
+    return Math.sqrt(Math.pow((univX - studX),2) + Math.pow((univY - studY),2));
+  }
+  
+  </script>
+
