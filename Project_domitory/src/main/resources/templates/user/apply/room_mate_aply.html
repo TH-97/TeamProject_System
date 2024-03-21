@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>외박신청</title>
+</head>
+<body>
+    <section id="rm_section" >
+      <form action="" method="post">
+      <div class="rm_apply_container">
+          <div class="rm_apply_header">
+            <h1>룸메이트 신청서</h1>
+          </div>
+
+          <div class="rm_apply_detail">
+            
+              <h1>내 정보</h1>
+              <p>이름 : </p>
+              <p>학번 : </p>
+          
+          </div>
+
+          <div class="rm_apply_user">
+              <h1>룸메이트 정보</h1>
+              <p>이름 : <input type="text" name="" id=""></p>
+              <p>학번 : <input type="text" name="" id=""></p>
+
+          </div>
+
+          <div class="rm_apply_footer">
+              <h3>룸메이트는 학생 한명당 한번만 신청가능합니다.</h3>
+              <h3>위 본인은 학생기숙사 관리자에게 룸메이트를 신청합니다.</h3>
+          </div>
+          
+            <input type="submit" value="신청하기">
+         
+  
+      </div>
+
+
+    </form>
+
+    </section>
+</body>
+</html>
+
+
+<style >
+  body{
+    background-color:  rgb(255, 211, 208);
+  }
+
+  #rm_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .rm_apply_container > div:first-child{
+    border-top: 20px solid salmon;
+  }
+
+  .rm_apply_header > h1{
+    font-size: 36px;
+  }
+  .rm_apply_container > div{
+    border-radius: 15px;
+    width: 1000px;
+    padding: 1% 5%;
+    margin-bottom: 20px;
+    background-color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  }
+  .rm_apply_user{
+    border-left: 15px solid salmon; 
+  }
+  .rm_apply_user input{
+    border: 3px solid salmon;
+    border-radius: 5px;
+  }
+
+  .rm_apply_container input[type="submit"]{
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+    background-color: salmon;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+  }
+  .rm_apply_user input:focus{
+    outline: none;
+    border: 3px solid black;
+  }
+
+
+
+  
+
+</style>

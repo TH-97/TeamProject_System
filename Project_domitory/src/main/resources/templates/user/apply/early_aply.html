@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퇴실신청</title>
+</head>
+<body>
+    <section id="early_section" >
+      <form action="earlyInsert" method="post">
+      <div class="early_apply_container">
+          <div class="early_apply_header">
+            <h1>퇴실 신청서</h1>
+          </div>
+
+          <div class="early_apply_detail">
+            
+              <h1>신청 정보</h1>
+              <p>이름 : [[${userVO.user_nm}]]</p>
+              <input type="hidden" name="stud_no" th:value="${userVO.stud_no}">
+              
+               <span>모집년도/학기 : </span>
+              <select name="mvn_rcrt_no">
+                <option value="202307" disabled>2023년 2학기</option>
+                <option value="202403" >2024년 1학기</option>
+              </select>
+              
+          </div>
+
+          <div class="early_apply_content">
+            <h1>퇴실 사유</h1>
+            <textarea name="ear_dep_rsn" placeholder="퇴실사유를 적어주세요. 관리자가 판단하겠습니다."></textarea>
+          </div>
+
+          <div class="early_apply_account">
+            <h1>환불 계좌</h1>
+            <input type="text" name="rfnd_actno" placeholder="ex) 은행명/계좌번호">
+          </div>
+
+           
+            <div class="early_apply_footer">
+              <h3>위 본인은 학생기숙사 관리자에게 퇴실 신청을 하오니 허가 해주시기 바랍니다.</h3>
+          </div>
+
+          <input type="submit" value="신청하기">
+  
+      </div>
+
+
+    </form>
+
+    </section>
+</body>
+</html>
+
+
+<style >
+  body{
+    background-color:  rgb(232, 191, 255);
+  }
+
+  #early_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .early_apply_container > div:first-child{
+    border-top: 20px solid rgb(174, 64, 238);
+  }
+
+  .early_apply_header > h1{
+    font-size: 36px;
+  }
+  .early_apply_container > div{
+    border-radius: 15px;
+    width: 1000px;
+    padding: 1% 5%;
+    margin-bottom: 20px;
+    background-color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  }
+
+  .early_apply_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 15px solid rgb(174, 64, 238);
+  }
+  .early_apply_content > textarea {
+    width: 100%;
+    height: 200px;
+    border: 3px solid rgb(174, 64, 238);
+    border-radius: 15px;
+    padding: 30px;
+    font-size: 24px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+
+  .early_apply_content > textarea:focus, .early_apply_account input:focus{
+    border: 3px solid black;
+    outline: none;
+  }
+
+  .early_apply_content h1{
+    width: 100%;
+    text-align: left;
+  }
+
+  .early_apply_container input[type="submit"]{
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(174, 64, 238);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+  }
+  .early_apply_account{
+    border-left: 15px solid rgb(174, 64, 238);
+  }
+  .early_apply_account input{
+    width: 500px;
+    height: 30px;
+    border: 3px solid rgb(174, 64, 238);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+
+</style>

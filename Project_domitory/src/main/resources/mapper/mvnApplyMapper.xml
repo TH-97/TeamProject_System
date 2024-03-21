@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.project.domitory.mvnapply.service.MvnApplyMapper">
+	<select id="getMvnList" resultType="MvnApplicantVO">
+		select m.* , s.USER_NM, s.PN_PNT from mvn_aply m
+		left join student s on m.STUD_NO=
+		s.STUD_NO
+		<if test="STUD_NO != null and STUD_NO!= '' ">
+			where s.STUD_NO = #{STUD_NO}
+		</if>
+		
+		<if test="MVN_RCRT_NO != null and MVN_RCRT_NO != 0">
+			and m.MVN_RCRT_NO = #{MVN_RCRT_NO}
+		</if>
+		<if test="STTS_CLSF != null and STTS_CLSF != 0">
+			and m.STTS_CLSF = #{STTS_CLSF}
+		</if>
+		<if test="USER_NM != null and USER_NM != '' ">
+			and s.USER_NM = #{USER_NM}
+		</if>
+		
+	</select>
+
+	<select id="getEarlyList" resultType="EarDepApplicantVO">
+		select  e.* , s.USER_NM, m.ALTMNT_RM_CD  from ear_dep_aply e
+		left join mvn_aply m on e.MVN_RCRT_NO = m.MVN_RCRT_NO and e.STUD_NO = m.STUD_NO
+		left join student s on e.STUD_NO= s.STUD_NO
+		where e.stud_no = #{stud_no}
+		and e.mvn_rcrt_no = #{mvn_rcrt_no}
+		order by e.ear_dep_no desc
+
+	</select>
+
+
+	<select id="getObList" resultType="OBApplicantVO">
+		select o.* , USER_NM from
+		ob_aply o
+		left join student s on o.STUD_NO= s.STUD_NO
+		where s.STUD_NO = #{stud_no} and
+		o.MVN_RCRT_NO = #{mvn_rcrt_no}
+		order by o.ob_no desc
+
+	</select>
+
+
+	<select id="getStudent" resultType="StudentVO">
+		select * from Student
+		where
+		STUD_NO = #{STUD_NO}
+	</select>
+
+	<update id="applyFilterMen">
+		update mvn_aply set STTS_CLSF = '2'
+		where stud_no in (
+		select a.stud_no from(select row_number() over(order by s.STUD_DIST,
+		s.snths_scr desc) as rm , s.* from mvn_aply m
+		left join student s on
+		m.STUD_NO = s.STUD_NO
+		where MVN_RCRT_NO = #{mvnRcrtNo} and SNTHS_SCR >=
+		3.5 and STTS_CLSF = 1 and GNDR_NM = 'M') a
+		where rm > 60);
+	</update>
+	<update id="applyFilterWomen">
+		update mvn_aply set STTS_CLSF = '2'
+		where stud_no in (
+		select a.stud_no from(select row_number() over(order by s.STUD_DIST,
+		s.snths_scr desc) as rm , s.* from mvn_aply m
+		left join student s on
+		m.STUD_NO = s.STUD_NO
+		where MVN_RCRT_NO = #{mvnRcrtNo} and SNTHS_SCR >=
+		3.5 and STTS_CLSF = 1 and GNDR_NM = 'F') a
+		where rm > 60);
+	</update>
+	
+	<update id="updateMvnEarly">
+		update mvn_aply set DEP_CLSF = #{DEP_CLSF} , DEP_YMD = DATE_FORMAT(NOW(), '%Y%m%d'),
+		ALTMNT_RM_CD = null
+		where MVN_RCRT_NO = #{MVN_RCRT_NO} 
+		and STUD_NO = #{STUD_NO}
+	</update>
+	
+	<update id="updateAltmntNope">
+		update mvn_rm set ALTMNT_NOPE = ALTMNT_NOPE-1 
+		where RM_CD = #{ALTMNT_RM_CD} and ALTMNT_NOPE > 0;
+	</update>
+	
+	<update id="updateEarlyConfirm">
+		update ear_dep_aply set conf_ymd = DATE_FORMAT(NOW(), '%Y%m%d')
+		where ear_dep_no = #{ear_dep_no}
+	</update>
+	
+	<update id="updateOBConfirm">
+		update ob_aply set conf_ymd = DATE_FORMAT(NOW(), '%Y%m%d')
+		where ob_no = #{ob_no}
+	</update>
+	
+	
+	<select id="getAllObEarlyList" resultType="OBAndEarlyAllVO">
+		 select MVN_RCRT_NO, o.stud_no, s.USER_NM, o.aply_YMD, '외박' as 'apply' from ob_aply o left join student s on o.STUD_NO = s.STUD_NO 
+ 		where o.CONF_YMD is null
+		union all
+ 		select MVN_RCRT_NO, e.stud_no, s.USER_NM, e.aply_YMD , '퇴실' as 'apply' from ear_dep_aply e left join student s on e.STUD_NO = s.STUD_NO
+ 		 where e.CONF_YMD is null
+	</select>
+	
+	<select id="getPenaltyList" resultType="PenaltyVO">
+		select r.* , s.USER_NM, d.REW_SCR, d.RULE_DTL from REW_PEN_DSCTN r 
+		left join student s on r.stud_no = s.STUD_NO
+		left join dorm_rule d on d.RULE_NO = r.rule_no
+		where r.stud_no = #{stud_no}
+		<if test="mvn_rcrt_no != null and mvn_rcrt_no != '' ">
+			and r.mvn_rcrt_no = #{mvn_rcrt_no}
+		</if>
+		order by r.rew_no desc
+		
+	</select>
+	
+	<select id="getRuleList" resultType="RuleVO">
+		select * from dorm_rule;
+	</select>
+	
+	<update id="updatePenalty">
+		update student set pn_pnt = pn_pnt + #{penalty}
+		where stud_no = #{studNo}
+	</update>
+	
+	<insert id="insertPenalty">
+		INSERT INTO REW_PEN_DSCTN(MVN_RCRT_NO, STUD_NO, RULE_NO, REW_DATE)
+		 VALUES (#{mvn_rcrt_no}, #{stud_no}, #{rule_no}, DATE_FORMAT(NOW(), '%Y%m%d'));
+	</insert>
+	
+
+</mapper>
