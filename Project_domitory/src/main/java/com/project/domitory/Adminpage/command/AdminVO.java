@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor //멤버변수를 받
 @NoArgsConstructor  // 기본생성자
 @Builder
-public class StudentVO {
+public class AdminVO {
 
     private Integer stud_no;
     private String user_nm;
