@@ -3,12 +3,11 @@ package com.project.domitory.Adminpage.service;
 import com.project.domitory.Adminpage.command.AutoVO;
 import com.project.domitory.Adminpage.command.BuildingVO;
 import com.project.domitory.Adminpage.command.FloorVO;
-import com.project.domitory.Adminpage.command.StudentVO;
+import com.project.domitory.Adminpage.command.AdminVO;
 import com.project.domitory.Adminpage.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,7 +18,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<StudentVO> getname(StudentVO vo) {
+    public List<AdminVO> getname(AdminVO vo) {
         return studentMapper.getname(vo);
     }
 
@@ -84,32 +83,32 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<StudentVO> getUserRoom() {
+    public List<AdminVO> getUserRoom() {
         return studentMapper.getUserRoom();
     }
 
     @Override
-    public List<StudentVO> getUserRoom2() {
+    public List<AdminVO> getUserRoom2() {
         return studentMapper.getUserRoom2();
     }
 
     @Override
-    public List<StudentVO> getUserRoom3() {
+    public List<AdminVO> getUserRoom3() {
         return studentMapper.getUserRoom3();
     }
 
     @Override
-    public List<StudentVO> getUserRoom4() {
+    public List<AdminVO> getUserRoom4() {
         return studentMapper.getUserRoom4();
     }
 
     @Override
-    public List<StudentVO> getUserRoom5() {
+    public List<AdminVO> getUserRoom5() {
         return studentMapper.getUserRoom5();
     }
 
     @Override
-    public List<StudentVO> getUserRoom6() {
+    public List<AdminVO> getUserRoom6() {
         return studentMapper.getUserRoom6();
     }
 

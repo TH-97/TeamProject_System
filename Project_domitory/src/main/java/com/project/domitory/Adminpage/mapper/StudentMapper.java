@@ -3,18 +3,16 @@ package com.project.domitory.Adminpage.mapper;
 import com.project.domitory.Adminpage.command.AutoVO;
 import com.project.domitory.Adminpage.command.BuildingVO;
 import com.project.domitory.Adminpage.command.FloorVO;
-import com.project.domitory.Adminpage.command.StudentVO;
+import com.project.domitory.Adminpage.command.AdminVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Mapper
 public interface StudentMapper {
 
-    public List<StudentVO> getname(StudentVO vo);
+    public List<AdminVO> getname(AdminVO vo);
 
     public List<BuildingVO> getBuliding(BuildingVO vo);
 
@@ -30,17 +28,17 @@ public interface StudentMapper {
 
     public List<AutoVO> getRoom();
 
-    public List<StudentVO> getUserRoom();
+    public List<AdminVO> getUserRoom();
 
-    public List<StudentVO> getUserRoom2();
+    public List<AdminVO> getUserRoom2();
 
-    public List<StudentVO> getUserRoom3();
+    public List<AdminVO> getUserRoom3();
 
-    public List<StudentVO> getUserRoom4();
+    public List<AdminVO> getUserRoom4();
 
-    public List<StudentVO> getUserRoom5();
+    public List<AdminVO> getUserRoom5();
 
-    public List<StudentVO> getUserRoom6();
+    public List<AdminVO> getUserRoom6();
 
 
 }

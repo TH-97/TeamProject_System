@@ -5,7 +5,7 @@
 
 
 <mapper namespace="com.project.domitory.Adminpage.mapper.StudentMapper">
-    <select id="getname" resultType="Adminpage.command.StudentVO">
+    <select id="getname" resultType="Adminpage.command.AdminVO">
         SELECT mvn_aply.stud_no, ALTMNT_RM_CD, STUDENT.user_nm , stts_clsf,STUDENT.gndr_nm
         FROM mvn_aply
                  JOIN STUDENT ON mvn_aply.stud_no = STUDENT.stud_no
@@ -47,49 +47,49 @@
         where gndr_clsf = "1";
     </select>
 
-    <select id="getUserRoom" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom1" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom1" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom2" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom2" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom3" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom3" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom4" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom4" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom5" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom5" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
         where MVN_APLY.ALTMNT_RM_CD like '%%%'
     </select>
 
-    <select id="getUserRoom6" resultType="Adminpage.command.StudentVO">
+    <select id="getUserRoom6" resultType="Adminpage.command.AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
