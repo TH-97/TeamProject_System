@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.project.domitory.Adminpage.mapper.StudentMapper">
+    <select id="getname" resultType="StudentVO">
+        SELECT mvn_aply.stud_no, ALTMNT_RM_CD, STUDENT.user_nm , stts_clsf,STUDENT.gndr_nm
+        FROM mvn_aply
+                 JOIN STUDENT ON mvn_aply.stud_no = STUDENT.stud_no
+        WHERE STUDENT.user_nm = #{user_nm};
+    </select>
+
+    <select id="getBuliding" resultType="BuildingVO">
+        select *
+        from BLDG_INFO where bldg_nm = #{bldg_nm};
+    </select>
+
+    <select id="getFloor" resultType="FloorVO">
+        select rm.rm_cd , rm.actc_nope , rm.altmnt_nope
+        from mvn_rm as rm
+                 join rm_info on rm.rm_cd = rm_info.rm_cd
+        where rm_info.bldg_cd =  #{bldg_cd};
+    </select>
+
+    <update id="setRoom2">
+        update MVN_RM set ALTMNT_NOPE = ALTMNT_NOPE + 1
+        where rm_cd = #{altmnt_rm_cd};
+    </update>
+    <update id="setRoom">
+        update MVN_APLY set ALTMNT_RM_CD = #{altmnt_rm_cd} ,STTS_CLSF = 4,ALTMNT_YMD = DATE_FORMAT(NOW(), '%Y%m%d'), MVN_YMD = DATE_FORMAT(NOW(), '%Y%m%d')
+        where STUD_NO = #{stud_no};
+    </update>
+
+    <select id="getUser" resultType="AutoVO">
+        select * from mvn_aply where stts_clsf;
+    </select>
+
+    <select id="getGndr" resultType="AutoVO">
+        select gndr_nm from student where stud_no = #{stud_no};
+    </select>
+
+    <select id="getRoom" resultType="AutoVO">
+        select * from rm_info
+            join mvn_rm on rm_info.rm_cd = mvn_rm.rm_cd
+        where gndr_clsf = "1";
+    </select>
+
+    <select id="getUserRoom" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom1" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom2" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom3" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom4" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom5" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom6" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+</mapper>

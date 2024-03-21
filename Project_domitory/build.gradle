@@ -36,6 +36,7 @@ dependencies {
 	//마이바티스 실행 로그
 	//implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
+
     //시큐리티
     //implementation 'org.springframework.boot:spring-boot-starter-security'
     //시큐리티 타임리프에서 사용
