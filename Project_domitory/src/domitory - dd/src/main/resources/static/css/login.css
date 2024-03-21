@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=M+PLUS+Rounded+1c:wght@800&display=swap');
+
+li,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+        font-family: 'Cafe24Moyamoya-Regular-v1.0';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Regular-v1.0.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+       color:black;
+}
+
+p a {
+    color :darkgray;
+}
+
+
+
+
+.wrap {
+    max-width: 492px;
+    min-width: 360px;
+    max-height: 500px;
+    padding: 0 16px 200px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 100px;
+    border : 1px solide #e5e8eb;
+    /* background-color:#e5e8eb; */
+    border-radius: 23px;
+    box-shadow: 10px 20px 15px rgb(236, 236, 236);
+}
+
+.header {
+    text-align: center;
+    font-size: 35px;
+}
+
+.wrap .header a {
+    font-family: 'Kanit', sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif; 
+}
+
+.login .input-login {
+    width: 100%;
+    height: 56px;
+    padding: 18px 12px;
+    border: 1px solid #e5e8eb;
+    font-size: 16px;
+    font-weight: 700;
+    outline: 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.login {
+    overflow: hidden;
+}
+
+#btn-login {
+    float: right;
+    width: 37%;
+    height: 50px;
+    background-color: #f2fd48;
+    color: black;
+    border : 0px;
+    border-radius: 10px;
+}
+
+
+#mt {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color:#666666;
+    vertical-align: top;
+    letter-spacing: -.6px;
+    position: relative;
+}
+
+#mt > input {
+    margin-right:5px;
+    vertical-align: top;
+}
+
+p {
+    margin : -2px 15px 0px 0px;
+    font-size: 12px;
+    float: right;
+}
+.tpa{
+    margin-top : 17px;
+}
+
+.tpa button {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 0 0 8px;
+    margin-top: 6px;
+    border: 1px solid #d2d6e0;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #51555d;
+    background-color: #fff;
+    transition: all .15s linear;
+    /* border-radius: 10px; */
+    font-weight: bold;
+}
+button{
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.name {
+    float: left;
+    margin-left: 50px;
+}
+
+.btGoogle {
+    
+}
