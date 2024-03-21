@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.project.domitory.command.EarDepApplicantVO;
 import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.command.StudentVO;
+import com.project.domitory.command.StudentVO1;
 
 @Service("UserApply")
 public class UserApplyServiceImpl implements UserApplyService {

@@ -1,0 +1,139 @@
+* {margin : 0; padding : 0;}
+ ul , li {list-style: none;}
+
+ .popupFind {
+    padding : 20px 0px 0px 20px;
+ }
+ .findHeader {
+    width: 570px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+ }
+ .findHeader li{
+    width: 157px;
+    height: 50px;
+    float: left;
+    position: relative;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+ }
+
+ .findHeader a {
+    display : block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    width: 157px;
+    height: 50px;
+    box-sizing: border-box;
+    color:#001d3d;
+    padding: 18px 0px 0px;
+    text-decoration: none;
+ }
+ .on {
+    background-color: #f2fd48;
+ }
+
+ .stit {
+    width: 570px;
+    height: 72.5px;
+    padding : 38px 0px 15px;
+    font-weight: 800;
+    box-sizing: border-box;
+ }
+
+ .contents {
+    position: relative;
+ }
+
+ .contents .authType li{
+    clear:both;
+    margin-bottom:  10px;
+    vertical-align: top;
+ }
+
+ .contents .authType li{
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    width: 570px;
+    height: 110px;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+ }
+
+ .contents .authType .txt1 {
+    float: left;
+    display: block;
+    padding: 31px 0 0 107px;
+    font-size: 14px;
+    color:black;
+    font-weight: bold;
+
+ }
+
+ .contents .authType .txt2{
+    clear:both;
+    float:left;
+    display:block;
+    width: 280px;
+    padding: 7px 0 0 107px;
+    font-size : 12px;
+ }
+
+ .contents .authType .txt3 {
+    display:block;
+    position: absolute;
+    top : 34px;
+    right : 40px;
+    width: 106px;
+    height: 29px;
+    text-align: center;
+    background-color: #001d3d;
+    padding:8px 0px 0px ;
+    color: white;
+ }
+
+ .authType li:hover {
+    background-color: #f2fd48;
+    transition: 0.35s ease-in-out;
+    cursor: pointer;
+ }
+
+ .findpwtext {
+   font-size: 14px;
+   font-weight: bold;
+   padding: 20px 20px 20px 10px;
+   box-sizing: border-box;
+ }
+
+ .inputid {
+   text-align: center;
+   height: 180px;
+   padding:67px 50px 0px 0px;
+   background-color: #e6e6e6;
+   box-sizing: border-box;
+   font-weight: bold;
+ }
+
+ .inputid input{
+   width: 70%;
+   height: 43px;
+   padding : 18px 12px;
+   margin: 0 auto;
+   box-sizing: border-box;
+ }
+
+ .submitbtn {
+   margin-top: 20px;
+ }
+ .submitbtn button{
+   display: block;
+   width: 120px;
+   height: 52.5px;
+   margin: 0 auto;
+   background-color: #001d3d;
+   color : white;
+   cursor: pointer;
+ }

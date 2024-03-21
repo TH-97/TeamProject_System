@@ -11,7 +11,7 @@ import com.project.domitory.command.OBAndEarlyAllVO;
 import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.command.PenaltyVO;
 import com.project.domitory.command.RuleVO;
-import com.project.domitory.command.StudentVO;
+import com.project.domitory.command.StudentVO1;
 
 @Service
 public class MvnApplyServiceImpl implements MvnApplyService{
@@ -24,7 +24,7 @@ public class MvnApplyServiceImpl implements MvnApplyService{
 	}
 
 	@Override
-	public StudentVO getStudent(MVNApplicantVO vo) {
+	public StudentVO1 getStudent(MVNApplicantVO vo) {
 		return applyMapper.getStudent(vo);
 	}
 

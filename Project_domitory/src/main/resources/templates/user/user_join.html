@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+	<h3>회원가입 페이지</h3>
+	
+	<form action="joinForm" method="post">
+		<input type="text" name="stud_no" placeholder="학번"><br>
+		<input type="password" name="stud_pw" placeholder="비밀번호"><br>
+		<input type ="text" name = "user_nm" placeholder="성함"><br>
+		<select name="role">
+			<option value="ROLE_STUDENT">ROLE_STUDENT</option>
+			<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+			<option value="ROLE_TESTER">ROLE_TESTER</option>
+		</select><br>
+		<input type ="radio" name = "gndr_nm" value ="M" checked>남성
+		<input type ="radio" name = "gndr_nm" value ="F">여성<br>
+		<input type ="text" name = "snths_scr" placeholder="학점"><br>
+		<input type ="text" name = "stud_gr" placeholder="학년"><br>
+		<input type ="text" name = "stud_pn" placeholder="연락처"><br> 
+		<input type ="text" name = "stud_ad" placeholder="거주지"><br>
+		<input type ="text" name = "mj" placeholder="학과"><br>
+		
+		
+		<input type="submit" value="가입">
+	</form>
+	
+	
+	
+	
+	
+</body>
+</html>
