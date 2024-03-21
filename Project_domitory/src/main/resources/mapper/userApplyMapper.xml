@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.project.domitory.userapply.service.UserApplyMapper">
-   <select id="getStudent" resultType="StudentVO">
+   <select id="getStudent" resultType="command.mvnapply.StudentVO">
   	select * from STUDENT where stud_no = #{stud_no}
   </select>
   
