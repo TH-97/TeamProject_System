@@ -45,7 +45,7 @@
 	</select>
 
 
-	<select id="getStudent" resultType="StudentVO">
+	<select id="getStudent" resultType="StudentVO1">
 		select * from Student
 		where
 		STUD_NO = #{STUD_NO}

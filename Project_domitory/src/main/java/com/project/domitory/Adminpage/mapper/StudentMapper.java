@@ -3,7 +3,7 @@ package com.project.domitory.Adminpage.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AdminVO1;
 import com.project.domitory.command.AutoVO;
 import com.project.domitory.command.BuildingVO;
 import com.project.domitory.command.FloorVO;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Mapper
 public interface StudentMapper {
-    public List<AdminVO> getname(AdminVO vo);
+    public List<AdminVO1> getname(AdminVO1 vo);
 
     public List<BuildingVO> getBuliding(BuildingVO vo);
 
@@ -28,24 +28,26 @@ public interface StudentMapper {
 
     public List<AutoVO> getRoom();
 
-    public List<AdminVO> getUserState();
+
+    public List<AdminVO1> getUserState();
 
     public void reset(@Param("stud_no")String stud_no);
     public List<AutoVO> getRm_cd();
     public void reset2(@Param("rm_cd") String rm_cd);
 
 
-    public List<AdminVO> getUserRoom();
+    public List<AdminVO1> getUserRoom();
 
-    public List<AdminVO> getUserRoom2();
 
-    public List<AdminVO> getUserRoom3();
+    public List<AdminVO1> getUserRoom2();
 
-    public List<AdminVO> getUserRoom4();
+    public List<AdminVO1> getUserRoom3();
 
-    public List<AdminVO> getUserRoom5();
+    public List<AdminVO1> getUserRoom4();
 
-    public List<AdminVO> getUserRoom6();
+    public List<AdminVO1> getUserRoom5();
+
+    public List<AdminVO1> getUserRoom6();
 
 
 

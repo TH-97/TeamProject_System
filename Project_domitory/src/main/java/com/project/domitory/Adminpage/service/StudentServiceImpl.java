@@ -1,7 +1,7 @@
 package com.project.domitory.Adminpage.service;
 
 import com.project.domitory.Adminpage.mapper.StudentMapper;
-import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AdminVO1;
 import com.project.domitory.command.AutoVO;
 import com.project.domitory.command.BuildingVO;
 import com.project.domitory.command.FloorVO;
@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<AdminVO> getname(AdminVO vo) {
+    public List<AdminVO1> getname(AdminVO1 vo) {
         return studentMapper.getname(vo);
     }
 
@@ -123,32 +123,32 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<AdminVO> getUserRoom() {
+    public List<AdminVO1> getUserRoom() {
         return studentMapper.getUserRoom();
     }
 
     @Override
-    public List<AdminVO> getUserRoom2() {
+    public List<AdminVO1> getUserRoom2() {
         return studentMapper.getUserRoom2();
     }
 
     @Override
-    public List<AdminVO> getUserRoom3() {
+    public List<AdminVO1> getUserRoom3() {
         return studentMapper.getUserRoom3();
     }
 
     @Override
-    public List<AdminVO> getUserRoom4() {
+    public List<AdminVO1> getUserRoom4() {
         return studentMapper.getUserRoom4();
     }
 
     @Override
-    public List<AdminVO> getUserRoom5() {
+    public List<AdminVO1> getUserRoom5() {
         return studentMapper.getUserRoom5();
     }
 
     @Override
-    public List<AdminVO> getUserRoom6() {
+    public List<AdminVO1> getUserRoom6() {
         return studentMapper.getUserRoom6();
     }
 
