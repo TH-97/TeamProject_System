@@ -83,5 +83,35 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    @Override
+    public List<StudentVO> getUserRoom() {
+        return studentMapper.getUserRoom();
+    }
+
+    @Override
+    public List<StudentVO> getUserRoom2() {
+        return studentMapper.getUserRoom2();
+    }
+
+    @Override
+    public List<StudentVO> getUserRoom3() {
+        return studentMapper.getUserRoom3();
+    }
+
+    @Override
+    public List<StudentVO> getUserRoom4() {
+        return studentMapper.getUserRoom4();
+    }
+
+    @Override
+    public List<StudentVO> getUserRoom5() {
+        return studentMapper.getUserRoom5();
+    }
+
+    @Override
+    public List<StudentVO> getUserRoom6() {
+        return studentMapper.getUserRoom6();
+    }
+
 
 }

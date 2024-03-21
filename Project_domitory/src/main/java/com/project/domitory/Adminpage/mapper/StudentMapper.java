@@ -30,6 +30,17 @@ public interface StudentMapper {
 
     public List<AutoVO> getRoom();
 
+    public List<StudentVO> getUserRoom();
+
+    public List<StudentVO> getUserRoom2();
+
+    public List<StudentVO> getUserRoom3();
+
+    public List<StudentVO> getUserRoom4();
+
+    public List<StudentVO> getUserRoom5();
+
+    public List<StudentVO> getUserRoom6();
 
 
 }

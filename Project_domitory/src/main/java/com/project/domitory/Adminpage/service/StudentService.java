@@ -16,4 +16,16 @@ public interface StudentService {
     public void setRoom2(@Param("altmnt_rm_cd") String altmnt_rm_cd);
 
     public void auto();
+
+    public List<StudentVO> getUserRoom();
+
+    public List<StudentVO> getUserRoom2();
+
+    public List<StudentVO> getUserRoom3();
+
+    public List<StudentVO> getUserRoom4();
+
+    public List<StudentVO> getUserRoom5();
+
+    public List<StudentVO> getUserRoom6();
 }

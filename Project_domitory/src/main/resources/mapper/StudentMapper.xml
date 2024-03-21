@@ -47,4 +47,53 @@
         where gndr_clsf = "1";
     </select>
 
+    <select id="getUserRoom" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom1" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom2" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom3" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom4" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom5" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
+    <select id="getUserRoom6" resultType="StudentVO">
+        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
+        from MVN_APLY
+                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
+        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+    </select>
+
 </mapper>

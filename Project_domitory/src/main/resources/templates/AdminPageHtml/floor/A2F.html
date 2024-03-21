@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    *{margin: 0; padding: 0; text-align: center}
+    /* .tg  {border-collapse:collapse;border-spacing:0;} */
+    .tg .tg-0lax{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;word-break:normal;}
+    /* .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} */
+    .tg .tg-0lax{width: 200px; height: 160px;}
+    /* .tg-0lax{display: flex;} */
+    .tg-0lax1{border: none;}
+    .room{ width: 100%; display: flex; justify-content: space-around}
+    input{width: 70px;height: 15px; margin-bottom: 10px;}
+  </style>
+</head>
+<body>
+<br>
+<h3>A2층 방 배정도</h3>
+<br>
+<table class="tg" style="margin: 0 auto;">
+  <tbody>
+  <tr>
+    <td class="tg-0lax"><h3>101호</h3> <br>
+      <div th:each="list1: ${list1}" class="room">
+        <p th:text="${list1.stud_no}">
+        <p th:text="${list1.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"><h3>102호</h3> <br>
+      <div th:each="list2: ${list2}" class="room">
+        <p th:text="${list2.stud_no}">
+        <p th:text="${list2.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"> <h3>103호</h3> <br>
+      <div th:each="list3: ${list3}" class="room">
+        <p th:text="${list3.stud_no}">
+        <p th:text="${list3.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"><h3>104호</h3> <br>
+      <div th:each="list4: ${list4}" class="room">
+        <p th:text="${list4.stud_no}"></p>
+        <p th:text="${list4.user_nm}"></p>
+      </div>
+
+    </td>
+    <td class="tg-0lax1"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax"><h3>105호</h3> <br>
+      <div th:each="list5: ${list5}" class="room">
+        <p th:text="${list5.stud_no}">
+        <p th:text="${list5.user_nm}">
+      </div>
+
+
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax1"></td>
+    <td class="tg-0lax"><h3>106호</h3> <br>
+      <div th:each="list6: ${list6}" class="room">
+        <p th:text="${list6.stud_no}">
+        <p th:text="${list6.user_nm}">
+      </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><h3>107호</h3><br>
+      <div th:each="list7: ${list7}" class="room">
+        <p th:text="${list7.stud_no}">
+        <p th:text="${list7.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"><h3>108호</h3> <br>
+      <div th:each="list8: ${list8}" class="room">
+        <p th:text="${list8.stud_no}">
+        <p th:text="${list8.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"><h3>109호</h3> <br>
+      <div th:each="list9: ${list9}" class="room">
+        <p th:text="${list9.stud_no}">
+        <p th:text="${list9.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax"><h3>110호</h3> <br>
+      <div th:each="list10: ${list10}" class="room">
+        <p th:text="${list10.stud_no}">
+        <p th:text="${list10.user_nm}">
+      </div>
+
+    </td>
+    <td class="tg-0lax1"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
