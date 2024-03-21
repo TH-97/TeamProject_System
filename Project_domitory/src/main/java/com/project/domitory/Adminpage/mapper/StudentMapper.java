@@ -28,7 +28,16 @@ public interface StudentMapper {
 
     public List<AutoVO> getRoom();
 
+
+    public List<AdminVO1> getUserState();
+
+    public void reset(@Param("stud_no")String stud_no);
+    public List<AutoVO> getRm_cd();
+    public void reset2(@Param("rm_cd") String rm_cd);
+
+
     public List<AdminVO1> getUserRoom();
+
 
     public List<AdminVO1> getUserRoom2();
 
@@ -39,6 +48,8 @@ public interface StudentMapper {
     public List<AdminVO1> getUserRoom5();
 
     public List<AdminVO1> getUserRoom6();
+
+
 
 
 }

@@ -18,6 +18,9 @@ public interface StudentService {
 
     public void auto();
 
+
+    public void reset();
+  
     public List<AdminVO1> getUserRoom();
 
     public List<AdminVO1> getUserRoom2();

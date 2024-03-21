@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/allList.css">
+  <style>
+    td{overflow: hidden}
+  </style>
+</head>
+<body>
+  
+  <h3>게시물 관리</h3>
+  <hr>
+  <div id="listArea">
+
+  <table style="margin-top: 30px; width: 100%;">
+    <tr>
+      <th>공지사항 조회 내역</th>
+    </tr>
+
+    <tr>
+      <td>
+        <div id="detailsList">
+          <form action="notiList" method="post">
+          <div id="modfiyBtn2">
+            <button name="1">전체조회</button>
+          </div>
+          </form>
+          <div id="modfiyBtn">
+            <button >추가하기</button>
+          </div>
+
+          <form action="delectNoti" method="post">
+      <table id="ListTable">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>날짜</th>
+            <th>제목</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="list,${list}">
+            <td name="bbs_sn" th:text="${list.bbs_sn}"></td>
+            <td th:text="${list.bbs_reg_ydn}"></td>
+            <td th:text="${list.bbs_nm}"></td>
+            <td th:text="${list.bbs_cn}"></td>
+            <td><button id="deletNoti">삭제</button></td>
+          </tr>
+        </tbody>
+        </table>
+            </form>
+        </div>
+      </td>
+
+  </table>
+  
+  </div>
+
+<!-- 건의 사항 -->
+  <div id="listArea">
+    <table style="margin-top: 30px; width: 100%;">
+      <tr>
+        <th>건의사항 조회 내역</th>
+      </tr>
+  
+      <tr>
+        <td>
+          <div id="detailsList">
+          <div id="modfiyBtn">
+          <button >수정하기</button>
+          </div>
+        <table id="ListTable">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>날짜</th>
+              <th>제목</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>20204년06월06일</td>
+              <td>기숙사내 규칙사항 변경</td>
+              <td>현재 기숙사내에 규칙이...</td>
+            </tr>
+          </tbody>
+          </table>
+          </div>
+        </td>
+  
+    </table>
+    
+    </div>
+
+    <!-- 기숙사 규칙 -->
+    <div id="listArea">
+      <table style="margin-top: 30px; width: 100%;">
+        <tr>
+          <th>기숙사 규칙</th>
+        </tr>
+    
+        <tr>
+          <td>
+            <div id="detailsList">
+            <div id="modfiyBtn">
+            <button >수정하기</button>
+            </div>
+          <table id="ListTable">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>날짜</th>
+                <th>제목</th>
+                <th>내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>20204년06월06일</td>
+                <td>기숙사내 규칙사항 변경</td>
+                <td>현재 기숙사내에 규칙이...</td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+    
+      </table>
+      
+      </div>
+</body>
+<script>
+  var modfiyBtn = document.querySelector("#modfiyBtn")
+  modfiyBtn.addEventListener("click", () =>{
+    window.open("add","공지사항 작성","width = 600px height=400px top=100 left=100" )
+  });
+
+  var deletNoti = document.querySelector("#deletNoti")
+  deletNoti.addEventListener("click", ()=>{
+    deletNoti.submit();
+  });
+
+  var modfiyBtn2 = document.querySelector("modfiyBtn2")
+  modfiyBtn2.addEventListener("click",()=>){
+    modfiyBtn2.submit();
+  }
+</script>
+</html>
