@@ -78,6 +78,30 @@ public class StudentServiceImpl implements StudentService {
                       continue;
                   }
               }
+          }else {
+              List<AutoVO> roomList = studentMapper.getRoom();
+
+              for(AutoVO list : roomList){
+
+//                  System.out.println(list.getRm_cd() + " " + list.getUsg_clsf() + " " + list.getUse_yn() + " " +list.getAltmnt_nope() );
+
+                  if(Objects.equals(list.getUsg_clsf(),"2") &&
+                          Objects.equals(list.getUse_yn(), "1") &&
+                          list.getAltmnt_nope() < 2){
+
+
+                      String altmnt_rm_cd = list.getRm_cd();
+                      System.out.println(stud_no);
+                      System.out.println(altmnt_rm_cd);
+                      studentMapper.setRoom(altmnt_rm_cd, String.valueOf(stud_no));
+                      studentMapper.setRoom2(altmnt_rm_cd);
+                      return;
+
+                  } else if (list.getAltmnt_nope() == 2) {
+                      continue;
+                  }
+              }
+
           }
       }
 

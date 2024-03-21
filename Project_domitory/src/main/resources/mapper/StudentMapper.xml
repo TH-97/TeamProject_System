@@ -54,7 +54,7 @@
 
     <update id="reset">
         update MVN_APLY set STTS_CLSF = 1,ALTMNT_YMD = null, MVN_YMD = null, ALTMNT_RM_CD = null
-        where STUD_NO = ${stud_no};
+        where STUD_NO = #{stud_no};
     </update>
 
 

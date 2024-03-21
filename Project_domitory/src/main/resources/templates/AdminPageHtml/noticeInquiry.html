@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/css/allList.css">
+  <style>
+    td{overflow: hidden}
+  </style>
 </head>
 <body>
   
@@ -20,9 +23,16 @@
     <tr>
       <td>
         <div id="detailsList">
+          <form action="notiList" method="post">
+          <div id="modfiyBtn2">
+            <button name="1">전체조회</button>
+          </div>
+          </form>
           <div id="modfiyBtn">
             <button >추가하기</button>
           </div>
+
+          <form action="delectNoti" method="post">
       <table id="ListTable">
         <thead>
           <tr>
@@ -33,16 +43,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>20204년06월06일</td>
-            <td>기숙사내 규칙사항 변경</td>
-            <td>현재 기숙사내에 규칙이...</td>
-            <td><button>삭제</button></td>
-            <td><button>수정</button></td>
+          <tr th:each="list,${list}">
+            <td name="bbs_sn" th:text="${list.bbs_sn}"></td>
+            <td th:text="${list.bbs_reg_ydn}"></td>
+            <td th:text="${list.bbs_nm}"></td>
+            <td th:text="${list.bbs_cn}"></td>
+            <td><button id="deletNoti">삭제</button></td>
           </tr>
         </tbody>
         </table>
+            </form>
         </div>
       </td>
 
@@ -131,5 +141,15 @@
   modfiyBtn.addEventListener("click", () =>{
     window.open("add","공지사항 작성","width = 600px height=400px top=100 left=100" )
   });
+
+  var deletNoti = document.querySelector("#deletNoti")
+  deletNoti.addEventListener("click", ()=>{
+    deletNoti.submit();
+  });
+
+  var modfiyBtn2 = document.querySelector("modfiyBtn2")
+  modfiyBtn2.addEventListener("click",()=>){
+    modfiyBtn2.submit();
+  }
 </script>
 </html>
