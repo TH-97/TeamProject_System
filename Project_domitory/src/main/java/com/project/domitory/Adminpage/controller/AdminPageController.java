@@ -79,6 +79,16 @@ public class AdminPageController {
         studentService.auto();
         return "AdminPageHtml/roomAssignment";
     }
+    @PostMapping("/reset")
+    public String reset(){
+        studentService.reset();
+        return "AdminPageHtml/roomAssignment";
+    }
+
+    @RequestMapping("/suggestInquiry")
+    public String test11(){
+        return "AdminPageHtml/noticeInquiry";
+    }
 
     @RequestMapping(value = "/A1F")
     public String test6(Model model) {

@@ -47,6 +47,26 @@
         where gndr_clsf = "1";
     </select>
 
+    <select id="getUserState" resultType="AdminVO">
+        select stud_no from MVN_APLY where STTS_CLSF = 4;
+    </select>
+
+
+    <update id="reset">
+        update MVN_APLY set STTS_CLSF = 1,ALTMNT_YMD = null, MVN_YMD = null, ALTMNT_RM_CD = null
+        where STUD_NO = ${stud_no};
+    </update>
+
+
+    <select id="getRm_cd" resultType="AutoVO">
+        select rm_cd from mvn_rm;
+    </select>
+
+    <update id="reset2">
+        update MVN_RM set ALTMNT_NOPE = 0 where rm_cd = ${rm_cd};
+    </update>
+
+
     <select id="getUserRoom" resultType="AdminVO">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
