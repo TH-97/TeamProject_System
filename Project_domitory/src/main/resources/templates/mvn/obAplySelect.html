@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="css/allList.css">
+</head>
+<body>
+
+
+	<div id="listArea">
+
+		<table style="margin-top: 30px; width: 100%;">
+			<tr>
+				<th>외박 신청 조회</th>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="detailsList">
+
+
+						<table id="ListTable">
+							<thead>
+								<tr>
+									<th>외박신청번호</th>
+									<th>입주모집번호</th>
+									<th>학번</th>
+									<th>이름</th>
+									<th>시작일자</th>
+									<th>종료일자</th>
+									<th>외박사유</th>
+									<th>신청일자</th>
+									<th>승인일자</th>
+									<th>비고</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="vo : ${OBList}">
+									<td>[[${vo.ob_no}]]</td>
+									<td>[[${vo.mvn_rcrt_no}]]</td>
+									<td>[[${vo.stud_no}]]</td>
+									<td>[[${vo.user_nm}]]</td>
+									<td>[[${vo.bgng_ymd}]]</td>
+									<td>[[${vo.end_ymd}]]</td>
+									<td>[[${vo.ob_rsn}]]</td>
+									<td>[[${vo.aply_ymd}]]</td>
+									<td th:if="${vo.conf_ymd == null}">
+										<form action="/updateOB" method="post">
+											<input type="hidden" name="ob_no" th:value="${vo.ob_no}"> 
+											<input type="hidden" name="mvn_rcrt_no" th:value="${vo.mvn_rcrt_no}">
+											<input type="hidden" name="stud_no" th:value="${vo.stud_no}">
+											 <input type="submit" value="외박승인하기">
+											 
+										</form>
+									</td>
+									<td th:if="${vo.conf_ymd != null}">[[${vo.conf_ymd}]]</td>
+									<td>[[${vo.rmrk}]]</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

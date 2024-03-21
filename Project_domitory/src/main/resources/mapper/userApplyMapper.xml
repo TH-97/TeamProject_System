@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.project.domitory.userapply.service.UserApplyMapper">
+   <select id="getStudent" resultType="StudentVO">
+  	select * from STUDENT where stud_no = #{stud_no}
+  </select>
+  
+  <select id="getIsMvnApply" resultType="int">
+  	select count(*) from MVN_APLY 
+  	where stud_no = #{studNo}
+  </select>
+  
+  <update id="updateDistance">
+  	update student set stud_dist = #{distance}
+  	where stud_no = #{studNo}
+  </update>
+  
+  <insert id="insertMvnApply">
+  	insert into MVN_APLY(MVN_RCRT_NO, STUD_NO, APLY_YMD) values (#{rcrtNo}, #{studNo}, DATE_FORMAT(NOW(), '%Y%m%d'));
+  </insert>
+  
+   <insert id="insertEarDepApply">
+  		insert into ear_dep_aply(MVN_RCRT_NO, STUD_NO, APLY_YMD, ear_dep_rsn, rfnd_actno) values (#{mvn_rcrt_no}, #{stud_no}, DATE_FORMAT(NOW(), '%Y%m%d'), #{ear_dep_rsn}, #{rfnd_actno});
+  </insert>
+  
+   <insert id="insertObApply">
+  		insert into ob_aply(MVN_RCRT_NO, STUD_NO, APLY_YMD, bgng_ymd, end_ymd, ob_rsn) values (#{mvn_rcrt_no}, #{stud_no}, DATE_FORMAT(NOW(), '%Y%m%d'), #{bgng_ymd}, #{end_ymd}, #{ob_rsn});
+  </insert>
+  
+ </mapper>

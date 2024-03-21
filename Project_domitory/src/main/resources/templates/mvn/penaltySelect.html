@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="css/allList.css">
+<script src="https://kit.fontawesome.com/d71a4a6ef8.js"
+	crossorigin="anonymous"></script>
+</head>
+<script>
+	window.onload = function() {
+		var modalOpen = document.querySelector(".modal-open");
+		var modalClose = document.querySelector(".modal-close");
+		var penaltyUpdateModal = document.querySelector("#penaltyUpdateModal")
+
+		modalClose.onclick = function() {
+			penaltyUpdateModal.style.display = "none";
+		}
+
+	}
+
+	function modalOpen(btn) {
+		penaltyUpdateModal.style.display = "flex";
+		var mvnRcrtNo = btn.parentElement.parentElement.children[0].innerText;
+		var studNo = btn.parentElement.parentElement.children[1].innerText;
+		var userNm = btn.parentElement.parentElement.children[2].innerText;
+		console.log(studNo);
+		document.querySelector(".studNo").innerText = "학번 : "+studNo + ", 이름 : " +userNm + "님에게 벌점을 부과합니다.";
+		document.querySelector("#studNo").value = studNo;
+		document.querySelector("#mvnRcrtNo").value = mvnRcrtNo;
+		document.querySelector("#userNm").value = userNm;
+	}
+</script>
+<body>
+	<section style="text-align: center;">
+		<h3>벌점 관리</h3>
+		<hr>
+		<div id="listArea">
+			<div id="lookUpBtn" style="float: right; padding: 10px;">
+				<form action="/penaltySelect" method="get">
+					입주모집번호 : <select name="MVN_RCRT_NO">
+						<option value="202403">202403</option>
+					</select> <br> <input type="text" name="USER_NM"
+						placeholder="이름,전체조회(미입력)"> <input type="submit"
+						value="검색">
+				</form>
+			</div>
+
+
+			<table style="margin-top: 30px; width: 100%;">
+			 	<tr>
+  					<th>입주자 조회 내역</th>
+  				</tr>
+			
+
+				<tr>
+					<td>
+						<div id="detailsList">
+							<table id="ListTable">
+								<thead>
+									<tr>
+										<th>입주모집번호</th>
+										<th>학번</th>
+										<th>이름</th>
+										<th>호실</th>
+										<th>상태구분</th>
+										<th>신청일자</th>
+										<th>선발일자</th>
+										<th>배정일자</th>
+										<th>입주일자</th>
+										<th>퇴실입자</th>
+										<th>퇴실구분</th>
+										<th colspan="2">벌점 총점</th>
+										<th>비고</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="vo : ${list}">
+									<td>[[${vo.MVN_RCRT_NO}]]</td>
+									<td>[[${vo.STUD_NO}]]</td>
+									<td>[[${vo.USER_NM}]]</td>
+									<td>[[${vo.ALTMNT_RM_CD}]]</td>
+									<td>[[${vo.STTS_CLSF == '1' ? '신청' : ''}]]
+										[[${vo.STTS_CLSF == '2' ? '선발실패' : ''}]]
+										 [[${vo.STTS_CLSF =='3' ? '선발' : ''}]]
+										  [[${vo.STTS_CLSF == '4' ? '배정' : ''}]]
+										[[${vo.STTS_CLSF == '5' ? '입주' : ''}]] 
+										[[${vo.STTS_CLSF == '6' ? '퇴사' : ''}]]</td>
+									<td>[[${vo.APLY_YMD}]]</td>
+									<td>[[${vo.CONF_YMD}]]</td>
+									<td>[[${vo.ALTMNT_YMD}]]</td>
+									<td>[[${vo.MVN_YMD}]]</td>
+									<td>[[${vo.DEP_YMD}]]</td>
+									<td>[[${vo.DEP_CLSF == '1' ? '퇴실안함' : ''}]]
+										[[${vo.DEP_CLSF == '2' ? '만기' : ''}]] [[${vo.DEP_CLSF == '3' ?
+										'중도' : ''}]] [[${vo.DEP_CLSF == '4' ? '벌점' : ''}]]</td>
+									<td>[[${vo.PN_PNT}]] 점</td>
+									<td> <button onclick="modalOpen(this)">상벌주기</button> </td>
+									<td>[[${vo.RMRK}]]</td>
+									
+								</tr>
+
+									<!-- 	<td style="width: 100px;">-10점</td>
+										<td style="width: 100px;"><button onclick="modalOpen()">상벌주기</button></td> -->
+
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+
+
+		<iframe id="penaltyDetail" src="penaltyDetail.html"
+			style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+
+
+	</section>
+	
+	<script>
+			var detail = document.querySelector("#ListTable > tbody");
+			var penaltyDetail = document.querySelector("#penaltyDetail");
+			detail.onclick = function() {
+				console.log(event.target.tagName);
+				if (event.target.tagName != "TD")
+					return;
+
+				var mvnRcrtNo = event.target.parentElement.children[0].innerText;
+				var studNo = event.target.parentElement.children[1].innerText;
+				console.log(mvnRcrtNo);
+				console.log(studNo);
+
+				penaltyDetail.setAttribute('src',`/penaltyDetail?&mvn_rcrt_no=${mvnRcrtNo}&stud_no=${studNo}`);
+			}
+		</script>
+
+
+		<style>
+#ListTable tbody tr:hover {
+	background-color: #e3e3e3;
+	cursor: pointer;
+}
+</style>
+
+
+	<!-- 여기가 모달 창 -->
+
+
+	<section id="penaltyUpdateModal" style="display: none;">
+		<form action="/penaltyUpdate" method="post">
+		<div class="PUM_wrap" style="position: relative;">
+		
+			<div class="PUM_container">
+				<div class="PUM_item">
+					<i class="fa-solid fa-x fa-2x modal-close" aria-hidden="true"
+						style="position: absolute; top: 30px; right: 50px; cursor: pointer;"></i> <br>
+					<h2 class="studNo"></h2>
+					<br>
+					<h2>※ 벌점 사항 ※</h2>
+	
+					<table>
+						<thead>
+							<tr>
+								<th>기준코드</th>
+								<th>벌점내용</th>
+								<th>벌점점수</th>
+								<th>체크</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="vo : ${ruleVO}">
+									<td>[[${vo.rule_no}]]<input type="hidden" name="rule_no" th:value="${vo.rule_no}"></td>
+									<td>[[${vo.rule_dtl}]]</td>
+									
+									<td>[[${vo.rew_scr}]]</td>
+									<td><input type="radio" name="pnPnt" th:value="${vo.rew_scr}" required="required"></td>						
+							</tr>
+							
+						</tbody>
+					</table>
+					<h4>※별점 10점 → 학생생활관 봉사 3일</h4>
+					<h4>※벌점 15점→ 강제관 조치</h4>
+				</div>
+				<br>
+				<div class="penalBtn">
+					<input type="hidden" name="user_nm" id="userNm"> 
+					<input type="hidden" name="stud_no" id="studNo"  >
+					<input type="hidden" name="mvn_rcrt_no" id="mvnRcrtNo"  >
+					<input type="submit" value="상벌점 적용하기" id="upateBtn">
+				</div>
+				
+
+			</div>
+		</div>
+		</form>
+	</section>
+</body>
+
+<style>
+#penaltyUpdateModal {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(239, 239, 239, 0.7);
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.PUM_wrap {
+	width: 40vw;
+	height: 80vh;
+	display: flex;
+	justify-content: flex-start;
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+
+}
+.PUM_wrap h2{
+	text-align: center;
+
+}
+.penalBtn{
+	text-align: center;
+}
+#upateBtn{
+
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 5px;
+
+}
+
+.PUM_container {
+	padding: 50px;
+}
+</style>
+
+
+</html>
