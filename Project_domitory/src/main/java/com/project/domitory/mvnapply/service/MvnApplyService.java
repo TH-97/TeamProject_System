@@ -2,13 +2,13 @@ package com.project.domitory.mvnapply.service;
 
 import java.util.List;
 
-import com.project.domitory.command.mvnapply.EarDepApplicantVO;
-import com.project.domitory.command.mvnapply.MVNApplicantVO;
-import com.project.domitory.command.mvnapply.OBAndEarlyAllVO;
-import com.project.domitory.command.mvnapply.OBApplicantVO;
-import com.project.domitory.command.mvnapply.PenaltyVO;
-import com.project.domitory.command.mvnapply.RuleVO;
-import com.project.domitory.command.mvnapply.StudentVO;
+import com.project.domitory.command.EarDepApplicantVO;
+import com.project.domitory.command.MVNApplicantVO;
+import com.project.domitory.command.OBAndEarlyAllVO;
+import com.project.domitory.command.OBApplicantVO;
+import com.project.domitory.command.PenaltyVO;
+import com.project.domitory.command.RuleVO;
+import com.project.domitory.command.StudentVO;
 
 public interface MvnApplyService {
 	List<MVNApplicantVO> getMvnList(MVNApplicantVO vo);

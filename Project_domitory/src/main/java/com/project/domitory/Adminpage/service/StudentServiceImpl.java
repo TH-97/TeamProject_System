@@ -1,10 +1,11 @@
 package com.project.domitory.Adminpage.service;
 
-import com.project.domitory.Adminpage.command.AutoVO;
-import com.project.domitory.Adminpage.command.BuildingVO;
-import com.project.domitory.Adminpage.command.FloorVO;
-import com.project.domitory.Adminpage.command.AdminVO;
 import com.project.domitory.Adminpage.mapper.StudentMapper;
+import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AutoVO;
+import com.project.domitory.command.BuildingVO;
+import com.project.domitory.command.FloorVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

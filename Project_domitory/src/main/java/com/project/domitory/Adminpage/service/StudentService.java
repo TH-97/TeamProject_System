@@ -1,9 +1,10 @@
 package com.project.domitory.Adminpage.service;
 
-import com.project.domitory.Adminpage.command.BuildingVO;
-import com.project.domitory.Adminpage.command.FloorVO;
-import com.project.domitory.Adminpage.command.AdminVO;
 import org.apache.ibatis.annotations.Param;
+
+import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.BuildingVO;
+import com.project.domitory.command.FloorVO;
 
 import java.util.List;
 

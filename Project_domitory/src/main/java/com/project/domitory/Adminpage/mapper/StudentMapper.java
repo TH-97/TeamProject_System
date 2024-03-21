@@ -1,17 +1,17 @@
 package com.project.domitory.Adminpage.mapper;
 
-import com.project.domitory.Adminpage.command.AutoVO;
-import com.project.domitory.Adminpage.command.BuildingVO;
-import com.project.domitory.Adminpage.command.FloorVO;
-import com.project.domitory.Adminpage.command.AdminVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AutoVO;
+import com.project.domitory.command.BuildingVO;
+import com.project.domitory.command.FloorVO;
 
 import java.util.List;
 
 @Mapper
 public interface StudentMapper {
-
     public List<AdminVO> getname(AdminVO vo);
 
     public List<BuildingVO> getBuliding(BuildingVO vo);

@@ -4,9 +4,9 @@ package com.project.domitory.userapply.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.domitory.command.mvnapply.EarDepApplicantVO;
-import com.project.domitory.command.mvnapply.OBApplicantVO;
-import com.project.domitory.command.mvnapply.StudentVO;
+import com.project.domitory.command.EarDepApplicantVO;
+import com.project.domitory.command.OBApplicantVO;
+import com.project.domitory.command.StudentVO;
 
 @Service("UserApply")
 public class UserApplyServiceImpl implements UserApplyService {

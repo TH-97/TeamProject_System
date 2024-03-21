@@ -12,22 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.domitory.command.mvnapply.EarDepApplicantVO;
-import com.project.domitory.command.mvnapply.MVNApplicantVO;
-import com.project.domitory.command.mvnapply.OBAndEarlyAllVO;
-import com.project.domitory.command.mvnapply.OBApplicantVO;
-import com.project.domitory.command.mvnapply.PenaltyVO;
-import com.project.domitory.command.mvnapply.StudentVO;
+import com.project.domitory.command.EarDepApplicantVO;
+import com.project.domitory.command.MVNApplicantVO;
+import com.project.domitory.command.OBAndEarlyAllVO;
+import com.project.domitory.command.OBApplicantVO;
+import com.project.domitory.command.PenaltyVO;
+import com.project.domitory.command.StudentVO;
 import com.project.domitory.mvnapply.service.MvnApplyService;
 
 @Controller
-@RequestMapping(value = "/")
 public class MvnApplyController {
 
 	@Autowired
 	private MvnApplyService applyService;
 
-	@GetMapping("/main")
+	@GetMapping("/admin")
 	public String adminMain() {
 		return "mvn/adminMainPage";
 	}

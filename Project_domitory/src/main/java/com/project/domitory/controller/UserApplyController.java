@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.domitory.command.mvnapply.EarDepApplicantVO;
-import com.project.domitory.command.mvnapply.OBApplicantVO;
+import com.project.domitory.command.EarDepApplicantVO;
+import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.userapply.service.UserApplyService;
 
 @Controller

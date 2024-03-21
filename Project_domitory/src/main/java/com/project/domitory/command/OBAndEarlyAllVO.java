@@ -1,4 +1,4 @@
-package com.project.domitory.command.mvnapply;
+package com.project.domitory.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

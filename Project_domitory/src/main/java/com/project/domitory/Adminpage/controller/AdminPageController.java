@@ -1,10 +1,10 @@
 package com.project.domitory.Adminpage.controller;
 
-import com.project.domitory.Adminpage.command.BuildingVO;
-import com.project.domitory.Adminpage.command.FloorVO;
-
-import com.project.domitory.Adminpage.command.AdminVO;
 import com.project.domitory.Adminpage.service.StudentService;
+import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.BuildingVO;
+import com.project.domitory.command.FloorVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -26,12 +26,11 @@ public class AdminPageController {
     //컨트롤러의 다음 흐름은 바로 service이기때문에 @Qualifier를 이용하여 지정해서 바로가져온다
     private StudentService studentService;
 
-
-    @GetMapping("/")
-    public String adminPage() {
-
-        return "AdminPageHtml/adminMainPage";
-    }
+	/*
+	 * @GetMapping("/") public String adminPage() {
+	 * 
+	 * return "AdminPageHtml/adminMainPage"; }
+	 */
 
     @PostMapping("/selectStudent")
     public String test(@RequestParam("name") String name, Model model) {

@@ -4,9 +4,9 @@ package com.project.domitory.userapply.service;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.project.domitory.command.mvnapply.EarDepApplicantVO;
-import com.project.domitory.command.mvnapply.OBApplicantVO;
-import com.project.domitory.command.mvnapply.StudentVO;
+import com.project.domitory.command.EarDepApplicantVO;
+import com.project.domitory.command.OBApplicantVO;
+import com.project.domitory.command.StudentVO;
 
 public interface UserApplyService {
 	public StudentVO getStudent(String studNo);
