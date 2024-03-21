@@ -5,7 +5,7 @@
 
 <mapper
 	namespace="com.project.domitory.mvnapply.service.MvnApplyMapper">
-	<select id="getMvnList" resultType="MvnApplicantVO">
+	<select id="getMvnList" resultType="command.mvnapply.MvnApplicantVO">
 		select m.* , s.USER_NM, s.PN_PNT from mvn_aply m
 		left join student s on m.STUD_NO=
 		s.STUD_NO
@@ -25,7 +25,7 @@
 		
 	</select>
 
-	<select id="getEarlyList" resultType="EarDepApplicantVO">
+	<select id="getEarlyList" resultType="command.mvnapply.EarDepApplicantVO">
 		select  e.* , s.USER_NM, m.ALTMNT_RM_CD  from ear_dep_aply e
 		left join mvn_aply m on e.MVN_RCRT_NO = m.MVN_RCRT_NO and e.STUD_NO = m.STUD_NO
 		left join student s on e.STUD_NO= s.STUD_NO
@@ -36,7 +36,7 @@
 	</select>
 
 
-	<select id="getObList" resultType="OBApplicantVO">
+	<select id="getObList" resultType="command.mvnapply.OBApplicantVO">
 		select o.* , USER_NM from
 		ob_aply o
 		left join student s on o.STUD_NO= s.STUD_NO
@@ -47,7 +47,7 @@
 	</select>
 
 
-	<select id="getStudent" resultType="StudentVO">
+	<select id="getStudent" resultType="command.mvnapply.StudentVO">
 		select * from Student
 		where
 		STUD_NO = #{STUD_NO}
@@ -99,7 +99,7 @@
 	</update>
 	
 	
-	<select id="getAllObEarlyList" resultType="OBAndEarlyAllVO">
+	<select id="getAllObEarlyList" resultType="command.mvnapply.OBAndEarlyAllVO">
 		 select MVN_RCRT_NO, o.stud_no, s.USER_NM, o.aply_YMD, '외박' as 'apply' from ob_aply o left join student s on o.STUD_NO = s.STUD_NO 
  		where o.CONF_YMD is null
 		union all
@@ -107,7 +107,7 @@
  		 where e.CONF_YMD is null
 	</select>
 	
-	<select id="getPenaltyList" resultType="PenaltyVO">
+	<select id="getPenaltyList" resultType="command.mvnapply.PenaltyVO">
 		select r.* , s.USER_NM, d.REW_SCR, d.RULE_DTL from REW_PEN_DSCTN r 
 		left join student s on r.stud_no = s.STUD_NO
 		left join dorm_rule d on d.RULE_NO = r.rule_no
@@ -119,7 +119,7 @@
 		
 	</select>
 	
-	<select id="getRuleList" resultType="RuleVO">
+	<select id="getRuleList" resultType="command.mvnapply.RuleVO">
 		select * from dorm_rule;
 	</select>
 	
