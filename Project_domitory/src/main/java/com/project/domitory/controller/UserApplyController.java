@@ -2,6 +2,7 @@ package com.project.domitory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,13 +22,18 @@ public class UserApplyController {
 	@Autowired
 	@Qualifier("UserApply")
 	private UserApplyService userApplyService;
+	
+
 
 	//입주신청서 작성페이지
 	@GetMapping("/mvnApply")
-	public String mvnApply(Model model) {
+	public String mvnApply(Model model, Authentication authentication) {
 		// 나중에 세션값 받아서 처리 필요
 		// 학번
-		String userNo = "202403225";
+
+		String userNo = authentication.getName();
+		System.out.println(userNo);
+
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		System.out.println(userApplyService.getStudent(userNo));
 		return "user/apply/mvn_aply";
@@ -35,10 +41,12 @@ public class UserApplyController {
 
 	@PostMapping("/mvnInsert")
 	public String mvnInsert(@RequestParam("MVN_RCRT_NO") String rcrtNo, @RequestParam("distance") int distance,
-			Model model ) {
+			Model model,Authentication authentication ) {
 		// 나중에 세션값 받아서 처리 필요
 		// 학번
-		String studNo = "202403225";
+
+		String studNo = authentication.getName();
+
 		if(userApplyService.getIsMvnApply(studNo) == 0) {
 			userApplyService.insertMvnApply(studNo, rcrtNo);
 			userApplyService.updateDistance(studNo, distance);

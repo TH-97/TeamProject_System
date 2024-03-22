@@ -1,7 +1,7 @@
 package com.project.domitory.Adminpage.controller;
 
 import com.project.domitory.Adminpage.service.StudentService;
-import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AdminVO1;
 import com.project.domitory.command.BuildingVO;
 import com.project.domitory.command.FloorVO;
 
@@ -34,11 +34,11 @@ public class AdminPageController {
 
     @PostMapping("/selectStudent")
     public String test(@RequestParam("name") String name, Model model) {
-        AdminVO vo = new AdminVO();
+        AdminVO1 vo = new AdminVO1();
         //파라미터로 값을 기져와서 이름을 vo에 저장한다
         vo.setUser_nm(name);
         //db에서 가져온 list를 list에 저장한다
-        List<AdminVO> list = studentService.getname(vo);
+        List<AdminVO1> list = studentService.getname(vo);
         //model에 list라는 이름으로 저장한다
         model.addAttribute("list", list);
         return "AdminPageHtml/roomAssignment";
@@ -79,20 +79,30 @@ public class AdminPageController {
         studentService.auto();
         return "AdminPageHtml/roomAssignment";
     }
+    @PostMapping("/reset")
+    public String reset(){
+        studentService.reset();
+        return "AdminPageHtml/roomAssignment";
+    }
+
+    @RequestMapping("/suggestInquiry")
+    public String test11(){
+        return "AdminPageHtml/noticeInquiry";
+    }
 
     @RequestMapping(value = "/A1F")
     public String test6(Model model) {
-        List<AdminVO> list = studentService.getUserRoom();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
+        List<AdminVO1> list = studentService.getUserRoom();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
 
 
         for (AdminVO vo : list) {
@@ -106,6 +116,7 @@ public class AdminPageController {
             if (vo.getAltmnt_rm_cd().equals("A108")) list8.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A109")) list9.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A110")) list10.add(vo);
+
         }
 
 
@@ -124,6 +135,7 @@ public class AdminPageController {
 
     @RequestMapping(value = "/A2F")
     public String test7(Model model) {
+
         List<AdminVO> list = studentService.getUserRoom2();
         List<AdminVO> list1 = new ArrayList<>();
         List<AdminVO> list2 = new ArrayList<>();
@@ -162,6 +174,7 @@ public class AdminPageController {
 
     @RequestMapping(value = "/A3F")
     public String test8(Model model) {
+
         List<AdminVO> list = studentService.getUserRoom3();
         List<AdminVO> list1 = new ArrayList<>();
         List<AdminVO> list2 = new ArrayList<>();
@@ -184,6 +197,7 @@ public class AdminPageController {
             if (vo.getAltmnt_rm_cd().equals("A308")) list8.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A309")) list9.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A310")) list10.add(vo);
+
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -200,6 +214,7 @@ public class AdminPageController {
 
     @RequestMapping(value = "/B1F")
     public String test9(Model model) {
+
         List<AdminVO> list = studentService.getUserRoom4();
         List<AdminVO> list1 = new ArrayList<>();
         List<AdminVO> list2 = new ArrayList<>();
@@ -238,6 +253,7 @@ public class AdminPageController {
 
     @RequestMapping(value = "/B2F")
     public String test10(Model model) {
+
         List<AdminVO> list = studentService.getUserRoom5();
         List<AdminVO> list1 = new ArrayList<>();
         List<AdminVO> list2 = new ArrayList<>();
@@ -260,6 +276,7 @@ public class AdminPageController {
             if (vo.getAltmnt_rm_cd().equals("B208")) list8.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B209")) list9.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B210")) list10.add(vo);
+
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -276,6 +293,7 @@ public class AdminPageController {
 
     @RequestMapping(value = "/B3F")
     public String test11(Model model) {
+
         List<AdminVO> list = studentService.getUserRoom6();
         List<AdminVO> list1 = new ArrayList<>();
         List<AdminVO> list2 = new ArrayList<>();
@@ -298,6 +316,7 @@ public class AdminPageController {
             if (vo.getAltmnt_rm_cd().equals("B308")) list8.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B309")) list9.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B310")) list10.add(vo);
+
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);

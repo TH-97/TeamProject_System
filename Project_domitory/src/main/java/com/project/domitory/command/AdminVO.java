@@ -6,16 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor //멤버변수를 받
-@NoArgsConstructor  // 기본생성자
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class AdminVO {
 
-    private Integer stud_no;
-    private String user_nm;
-    private String altmnt_rm_cd;
-    private Integer stts_clsf;
-    private String gndr_nm;
-
+	
+	private Integer admin_no;
+	private String admin_nm;
+	private String role;
+	private String admin_pn;
+	private String admin_pw;
 
 }

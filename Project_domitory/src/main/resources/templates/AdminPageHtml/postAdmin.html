@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0 auto; text-align: center;}
+</style>
+<body>
+ <form action="/addNoti" method="post">
+    <table border="1"  style="text-align: center; margin-top: 10px;">
+ 
+        <tr>
+            <th>글제목</th>
+            <th><input id="title" name="bbs_nm" type="text" placeholder="제목을 입력해 주세요.(공지사항)" style="width: 500px; height: 20px;"></th>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><textarea id="context" name="bbs_cn" placeholder="내용을 입력해주세요.(공지사항)" style="width: 500px; height: 200px;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="file" style="width: 500px; height: 50px;"><button type="submit" id="Btn" style="width: 80px; text-align: center;">저장하기</button></td>
+        </tr>
+    </table>
+ </form>
+
+</body>
+<script>
+    var btn = document.querySelector("#Btn")
+    btn.addEventListener("click",()=>{
+        event.target.submit();
+        window.close();
+    })
+</script>
+</html>

@@ -73,6 +73,15 @@ Bfloor3.addEventListener("click", ()=>{
   main.setAttribute("src",`/B3F?what=${what}`)
 });
 
+var suggestInquiry = document.querySelector("#suggestInquiry")
+suggestInquiry.addEventListener("click" ,()=>{
+  var main = document.querySelector("#main");
+  var what = event.target.text;
+  main.setAttribute("src",`/suggestInquiry?what=${what}`)
+});
+
+
+
   
 
   
