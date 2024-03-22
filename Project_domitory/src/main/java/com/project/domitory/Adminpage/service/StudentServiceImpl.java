@@ -110,9 +110,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void reset(){
-        List<AdminVO> list = studentMapper.getUserState();
+        List<AdminVO1> list = studentMapper.getUserState();
 
-        for(AdminVO vo : list){
+        for(AdminVO1 vo : list){
             studentMapper.reset(String.valueOf(vo.getStud_no()));
         }
         List<AutoVO> list2 = studentMapper.getRm_cd();

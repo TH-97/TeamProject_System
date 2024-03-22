@@ -71,21 +71,14 @@
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
-    </select>
-
-    <select id="getUserRoom1" resultType="AdminVO1">
-        select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
-        from MVN_APLY
-                 join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like 'A1%'
     </select>
 
     <select id="getUserRoom2" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like '%%'
     </select>
 
     <select id="getUserRoom3" resultType="AdminVO1">
