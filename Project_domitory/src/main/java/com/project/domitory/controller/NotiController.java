@@ -49,4 +49,34 @@ public class NotiController {
         return "/AdminPageHtml/noticeInquiry";
     }
 
+    @PostMapping("/songList")
+    public String test5(Model model){
+
+        List<NotiVO> list = notiService.songList();
+
+        model.addAttribute("song",list);
+        return "/AdminPageHtml/noticeInquiry";
+    }
+
+    @PostMapping("/deletSong")
+    public String test6(@RequestParam("song_no")Integer song_no,Model model){
+
+        notiService.deletSong(song_no);
+
+        List<NotiVO> list = notiService.songList();
+
+        model.addAttribute("song",list);
+        return "/AdminPageHtml/noticeInquiry";
+    }
+
+    @PostMapping("/addSong")
+    public String test7(@RequestParam("title")String title){
+
+        String stud_no = "";
+
+        notiService.addSong(stud_no,title);
+
+        return "mainPage";
+    }
+
 }

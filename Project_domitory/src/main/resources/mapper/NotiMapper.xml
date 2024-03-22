@@ -16,4 +16,18 @@
         select *
         from noti_board order by bbs_sn desc;
     </select>
+
+    <select id="songList" resultType="NotiVO">
+        select *
+        from song where date >= DATE_ADD(NOW, INTERVAL -2 DAY);
+    </select>
+
+    <delete id="delectNoti">
+        DELETE FROM song WHERE song_no = #{song_no};
+    </delete>
+
+    <insert id="addSong">
+        INSERT INTO song (stud_no,title,date)
+        VALUES (#{stud_no},#{title},DATE_FORMAT(NOW(), '%Y%m%d'));
+    </insert>
 </mapper>

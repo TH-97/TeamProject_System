@@ -13,4 +13,9 @@ public interface NotiMapper {
     public void delectNoti(@Param("bbs_sn")String bbs_sn);
 
     public List<NotiVO> notiList();
+    public List<NotiVO> songList();
+
+    public void deletSong(@Param("song_no")Integer song_no);
+
+    public void addSong(@Param("stud_no")String stud_no,@Param("title")String title);
 }
