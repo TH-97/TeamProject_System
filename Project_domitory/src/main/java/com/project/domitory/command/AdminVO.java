@@ -10,10 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class AdminVO {
+
 	
 	private Integer admin_no;
 	private String admin_nm;
 	private String role;
 	private String admin_pn;
 	private String admin_pw;
+
 }

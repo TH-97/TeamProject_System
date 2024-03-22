@@ -33,13 +33,14 @@
              <h1>학생 정보</h1>
              <p>성명 : [[${userVO.user_nm}]]</p>
              <p>학번 : [[${userVO.stud_no}]]</p>
+             <input type="hidden" name="stud_no" th:value="${userVO.stud_no}">
              <p>성별 : [[${userVO.gndr_nm}]]</p>
              <p>학점 : [[${userVO.snths_scr}]]</p>
              <p>학년 : [[${userVO.stud_gr}]]</p>
              <p>학과 : [[${userVO.mj}]]
              <p>전화번호 : [[${userVO.stud_pn}]]</p>
              <p>벌점 : [[${userVO.pn_pnt}]]
-             <p>주소 : [[${userVO.stud_ad}]]</p>
+             <p>주소 : <span id="studAd">[[${userVO.stud_ad}]]</span></p>
              집에서 학교거리(m) : <input type="number" name="distance" id="distance"  th:value="${userVO.stud_dist}" readonly="readonly"> [나중에 input:hidden처리]
           </div>
        		
@@ -121,9 +122,12 @@
   //학교 WTM X, Y값
   var universityWTMX = 202694.61000000135;
   var universityWTMY = 444463.60999921197;
+ 
 
   //학생 위치 구하기
   (async function(){
+	 var studAd = document.querySelector("#studAd").innerText;
+	  console.log(studAd)
     //학생 경도, 위도
     var studentLocX;
     var studentLocY;
@@ -137,7 +141,7 @@
     await $.ajax({
     method : "GET",
     url : "https://dapi.kakao.com/v2/local/search/address.json?",
-    data : {query : "경기도 시흥시 대야동"}, //나중에 학생주소 데이터 서버에서 받아서 여기에 넣으면됨
+    data : {query : studAd}, //나중에 학생주소 데이터 서버에서 받아서 여기에 넣으면됨
     headers : {Authorization : "KakaoAK a9194dac4b530f903a4cccffd29987a0"},
     success : function(data){
       console.log("경도 : " + data.documents[0].x);

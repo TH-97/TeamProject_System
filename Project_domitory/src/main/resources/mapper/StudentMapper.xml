@@ -47,6 +47,8 @@
         where gndr_clsf = "1";
     </select>
 
+
+
     <select id="getUserState" resultType="AdminVO1">
         select stud_no from MVN_APLY where STTS_CLSF = 4;
     </select>
@@ -74,39 +76,42 @@
         where MVN_APLY.ALTMNT_RM_CD like 'A1%'
     </select>
 
+
     <select id="getUserRoom2" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%'
+
+        where MVN_APLY.ALTMNT_RM_CD like 'A2%'
+
     </select>
 
     <select id="getUserRoom3" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like 'A3%'
     </select>
 
     <select id="getUserRoom4" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like 'B1%'
     </select>
 
     <select id="getUserRoom5" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like 'B2%'
     </select>
 
     <select id="getUserRoom6" resultType="AdminVO1">
         select MVN_APLY.stud_no , STUDENT.USER_NM, ALTMNT_RM_CD
         from MVN_APLY
                  join STUDENT on MVN_APLY.STUD_NO = STUDENT.stud_no
-        where MVN_APLY.ALTMNT_RM_CD like '%%%'
+        where MVN_APLY.ALTMNT_RM_CD like 'B3%'
     </select>
 
 </mapper>

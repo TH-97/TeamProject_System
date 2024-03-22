@@ -30,8 +30,10 @@ public class UserApplyController {
 	public String mvnApply(Model model, Authentication authentication) {
 		// 나중에 세션값 받아서 처리 필요
 		// 학번
+
 		String userNo = authentication.getName();
 		System.out.println(userNo);
+
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		System.out.println(userApplyService.getStudent(userNo));
 		return "user/apply/mvn_aply";
@@ -42,14 +44,17 @@ public class UserApplyController {
 			Model model,Authentication authentication ) {
 		// 나중에 세션값 받아서 처리 필요
 		// 학번
+
 		String studNo = authentication.getName();
+
 		if(userApplyService.getIsMvnApply(studNo) == 0) {
 			userApplyService.insertMvnApply(studNo, rcrtNo);
 			userApplyService.updateDistance(studNo, distance);
 		}else {
 			model.addAttribute("msg", "중복 신청 불가");
+			return "user/apply/userMain";
 		}
-			
+		model.addAttribute("msg", "신청 완료");	
 		return "user/apply/userMain";
 
 	}
@@ -57,7 +62,7 @@ public class UserApplyController {
 	//퇴실신청서 작성페이지
 	@GetMapping("/earlyApply")
 	public String earlyApply(Model model) {
-		String userNo = "4171404";
+		String userNo = "202403225";
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		return "user/apply/early_aply";
 	}
@@ -76,7 +81,7 @@ public class UserApplyController {
 	//외박신청서 작성페이지
 	@GetMapping("/obApply")
 	public String obApply(Model model) {
-		String userNo = "4171409";
+		String userNo = "202403225";
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		return "user/apply/ob_aply";
 	}
