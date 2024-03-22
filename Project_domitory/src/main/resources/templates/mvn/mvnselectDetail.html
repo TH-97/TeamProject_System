@@ -95,10 +95,7 @@ th:nth-child(2) {
 						[[${mvndetailVO.get(0).DEP_CLSF == '3' ? '중도' : ''}]]
 						[[${mvndetailVO.get(0).DEP_CLSF == '4' ? '벌점' : ''}]]</td>
 				</tr>
-				<tr>
-					<td>상벌총점</td>
-					<td th:text="${mvndetailVO.get(0).PN_PNT}"></td>
-				</tr>
+		
 			</table>
 
 			<table>
@@ -128,11 +125,11 @@ th:nth-child(2) {
 				</tr>
 				<tr>
 					<td>벌점</td>
-					<td th:text="${studentVO.mj}"></td>
+					<td th:text="${studentVO.pn_pnt}"></td>
 				</tr>
 				<tr>
 					<td>학과명</td>
-					<td th:text="${studentVO.pn_pnt}"></td>
+					<td th:text="${studentVO.mj}"></td>
 				</tr>
 				<tr>
 					<td>회원주소</td>

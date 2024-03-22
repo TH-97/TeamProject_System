@@ -13,7 +13,7 @@ public class AdminVO {
 
     private Integer stud_no;
     private String user_nm;
-    private Integer altmnt_rm_cd;
+    private String altmnt_rm_cd;
     private Integer stts_clsf;
     private String gndr_nm;
 

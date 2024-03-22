@@ -96,16 +96,16 @@ public class AdminPageController {
 
 
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A101")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A102")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A103")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A104")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A105")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A106")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A107")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A108")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A109")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A110")) list10.add(vo);
         }
 
 
@@ -136,16 +136,16 @@ public class AdminPageController {
         List<AdminVO> list9 = new ArrayList<>();
         List<AdminVO> list10 = new ArrayList<>();
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A201")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A202")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A203")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A204")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A205")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A206")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A207")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A208")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A209")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A210")) list10.add(vo);
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -174,16 +174,16 @@ public class AdminPageController {
         List<AdminVO> list9 = new ArrayList<>();
         List<AdminVO> list10 = new ArrayList<>();
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A301")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A302")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A303")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A304")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A305")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A306")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A307")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A308")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A309")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("A310")) list10.add(vo);
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -212,16 +212,16 @@ public class AdminPageController {
         List<AdminVO> list9 = new ArrayList<>();
         List<AdminVO> list10 = new ArrayList<>();
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B101")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B102")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B103")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B104")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B105")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B106")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B107")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B108")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B109")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B110")) list10.add(vo);
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -250,16 +250,16 @@ public class AdminPageController {
         List<AdminVO> list9 = new ArrayList<>();
         List<AdminVO> list10 = new ArrayList<>();
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B201")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B202")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B203")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B204")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B205")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B206")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B207")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B208")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B209")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B210")) list10.add(vo);
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
@@ -288,16 +288,16 @@ public class AdminPageController {
         List<AdminVO> list9 = new ArrayList<>();
         List<AdminVO> list10 = new ArrayList<>();
         for (AdminVO vo : list) {
-            if (vo.getAltmnt_rm_cd() == 101) list1.add(vo);
-            if (vo.getAltmnt_rm_cd() == 102) list2.add(vo);
-            if (vo.getAltmnt_rm_cd() == 103) list3.add(vo);
-            if (vo.getAltmnt_rm_cd() == 104) list4.add(vo);
-            if (vo.getAltmnt_rm_cd() == 105) list5.add(vo);
-            if (vo.getAltmnt_rm_cd() == 106) list6.add(vo);
-            if (vo.getAltmnt_rm_cd() == 107) list7.add(vo);
-            if (vo.getAltmnt_rm_cd() == 108) list8.add(vo);
-            if (vo.getAltmnt_rm_cd() == 109) list9.add(vo);
-            if (vo.getAltmnt_rm_cd() == 110) list10.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B301")) list1.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B302")) list2.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B303")) list3.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B304")) list4.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B305")) list5.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B306")) list6.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B307")) list7.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B308")) list8.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B309")) list9.add(vo);
+            if (vo.getAltmnt_rm_cd().equals("B310")) list10.add(vo);
         }
         model.addAttribute("list1", list1);
         model.addAttribute("list2", list2);
