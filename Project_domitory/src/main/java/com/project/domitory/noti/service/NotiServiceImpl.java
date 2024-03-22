@@ -35,4 +35,9 @@ public class NotiServiceImpl implements NotiService{
     public void deletSong(Integer song_no) {
         notiMapper.deletSong(song_no);
     }
+
+    @Override
+    public void addSong(String stud_no,String title) {
+        notiMapper.addSong(stud_no,title);
+    }
 }

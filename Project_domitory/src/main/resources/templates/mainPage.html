@@ -14,7 +14,7 @@
             <p style="font-size: 30px; font-weight: bold;">중정대학생활관<p>
         </div>
         <div class="musicrequest">
-          <form action="" method="post" name="music_request" accept-charset="UTF-8">
+          <form action="/addSong" method="post" name="title" accept-charset="UTF-8">
               <input size="50" type="text" placeholder="노래를 신청해보세요!">
               <input size="10"  type="submit" value="신청">
           </form>
@@ -33,10 +33,10 @@
 <div class="nav">
     <div class="innernav">
         <li><a class="menu" href="">공지사항</a></li>
-        <li><a class="menu" href="">기숙사규칙</a></li>
         <li><a class="menu" href="">입실신청</a></li>
         <li><a class="menu" href="">외박신청</a></li>
         <li><a class="menu" href="">건의사항</a></li>
+        <li><a class="menu" href="">퇴실신청</a></li>
     </div>
 </div>
         <div class="outer">
@@ -61,22 +61,14 @@
         <div class="contentbox">
             <div class="innercontentbox">
                 <div class="content1">
-                    <h3>공지사항</h3>
+                    <div id="notiList">
+                        <h3>공지사항</h3>
+                    </div>
                     <br>
                     <hr>
                     <div>
 
                     </div>
-                </div>
-        
-                <div class="content2">
-                    <h3>건의사항</h3>
-                    <br>
-                    <hr>
-                    <div>
-                        
-                    </div>
-    
                 </div>
             </div>
             

@@ -25,4 +25,9 @@
     <delete id="delectNoti">
         DELETE FROM song WHERE song_no = #{song_no};
     </delete>
+
+    <insert id="addSong">
+        INSERT INTO song (stud_no,title,date)
+        VALUES (#{stud_no},#{title},DATE_FORMAT(NOW(), '%Y%m%d'));
+    </insert>
 </mapper>

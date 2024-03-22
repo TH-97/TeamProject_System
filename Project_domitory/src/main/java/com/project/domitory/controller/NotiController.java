@@ -69,4 +69,14 @@ public class NotiController {
         return "/AdminPageHtml/noticeInquiry";
     }
 
+    @PostMapping("/addSong")
+    public String test7(@RequestParam("title")String title){
+
+        String stud_no = "";
+
+        notiService.addSong(stud_no,title);
+
+        return "mainPage";
+    }
+
 }
