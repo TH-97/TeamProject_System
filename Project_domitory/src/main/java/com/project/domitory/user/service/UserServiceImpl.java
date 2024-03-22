@@ -60,49 +60,7 @@ public class UserServiceImpl implements UserService{
 		userMapper.user_student(vo);
 	}
 
-	@Override
-	public void dumy(Student vo) {
-		if(vo.getRole().equals("ROLE_ADMIN")) {
-			BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
-			String pw =(bc.encode(vo.getPassword()));
-			AdminVO vo1 = new AdminVO();
-			vo1.setAdmin_no(vo.getStud_no());
-			vo1.setAdmin_nm(vo.getFullName());
-			vo1.setAdmin_pn(String.valueOf(vo.getStud_pn()));
-			vo1.setRole(vo.getRole());
-			vo1.setAdmin_pw(pw);
-			userMapper.admin_join(vo1);
-			
-			UserVO userVO = new UserVO();
-			userVO.setUser_id(vo1.getAdmin_no());
-			userVO.setAdmin_no(vo1.getAdmin_no());
-			userVO.setRole(vo1.getRole());
-			userVO.setUser_pw(pw);
-			//userVO에도 넣기
-			userMapper.user_admin(userVO);
-		}else if (vo.getRole().equals("ROLE_STUDENT")){
-			BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
-			String pw =(bc.encode(vo.getPassword()));
-			
-			StudentVO vo2 = new StudentVO();
-			
-			vo2.setMj(vo.getMj());
-			vo2.setRole(vo.getRole());
-			vo2.setStud_no(vo.getStud_no());
-			vo2.setStud_pw(pw);
-			vo2.setStud_pn(String.valueOf(vo.getStud_pn()));
-			
-			userMapper.stud_join(vo2);
-			
-			UserVO userVO = new UserVO();
-			userVO.setUser_id(vo.getStud_no());
-			userVO.setUser_pw(pw);
-			userVO.setRole(vo.getRole());
-			userVO.setStud_no(vo.getStud_no());
-			//userVO에도 넣기
-			userMapper.user_student(userVO);
-		}
-	}
+	
 
 
 

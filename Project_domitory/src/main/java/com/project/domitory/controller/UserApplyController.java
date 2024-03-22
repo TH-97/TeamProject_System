@@ -39,7 +39,7 @@ public class UserApplyController {
 
 	@PostMapping("/mvnInsert")
 	public String mvnInsert(@RequestParam("MVN_RCRT_NO") String rcrtNo, @RequestParam("distance") int distance,
-			Model model ) {
+			Model model,Authentication authentication ) {
 		// 나중에 세션값 받아서 처리 필요
 		// 학번
 		String studNo = authentication.getName();
