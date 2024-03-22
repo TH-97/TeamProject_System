@@ -163,7 +163,7 @@ public class MvnApplyController {
 	public String penaltyUpdate( PenaltyVO penvo,
 								
 								@RequestParam("pnPnt") Integer penalty, Model model) {
-		System.out.println("뿡입니다."+penalty);
+		System.out.println("뿡입니다."+penvo);
 		
 		applyService.updatePenalty(penvo.getStud_no(), penalty);
 		applyService.insertPenalty(penvo);
