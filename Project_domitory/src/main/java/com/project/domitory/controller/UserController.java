@@ -29,6 +29,7 @@ public class UserController {
 	@Qualifier("userService")
 	private UserService userService ;
 
+	
 	@GetMapping("/student_main")
 	public String student_main() {
 		return "user/student_main";
@@ -85,7 +86,7 @@ public class UserController {
 		}
 
 
-		return "redirect:/user/login";
+		return "redirect:/user/user_join";
 	}
 
 	@GetMapping("/login")
