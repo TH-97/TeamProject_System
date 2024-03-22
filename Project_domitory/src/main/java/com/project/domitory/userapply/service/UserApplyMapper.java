@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.project.domitory.command.EarDepApplicantVO;
 import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.command.StudentVO;
+import com.project.domitory.command.StudentVO1;
 
 @Mapper
 public interface UserApplyMapper {

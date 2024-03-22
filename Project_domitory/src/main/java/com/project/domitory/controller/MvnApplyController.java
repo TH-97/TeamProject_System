@@ -17,7 +17,7 @@ import com.project.domitory.command.MVNApplicantVO;
 import com.project.domitory.command.OBAndEarlyAllVO;
 import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.command.PenaltyVO;
-import com.project.domitory.command.StudentVO;
+import com.project.domitory.command.StudentVO1;
 import com.project.domitory.mvnapply.service.MvnApplyService;
 
 @Controller

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class AutoVO {
     //학생의 성별을 구분하기 위해 학번을 가져와서 select
     private Integer stud_no;
+
     //상태구분을 하기위해 값을 가져온다
     private String stts_clsf;
     //젠터 값 가져오기

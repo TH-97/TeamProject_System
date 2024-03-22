@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.domitory.noti.service.NotiMapper">
+    <insert id="addNoti">
+        INSERT INTO noti_board (ADMIN_NO,bbs_nm,bbs_cn,bbs_reg_ymd)
+        VALUES ("관리자",#{bbs_nm},#{bbs_cn},DATE_FORMAT(NOW(), '%Y%m%d'));
+    </insert>
+
+    <delete id="delectNoti">
+        DELETE FROM noti_board WHERE id = #{bbs_sn};
+    </delete>
+    
+    <select id="notiList" resultType="NotiVO">
+        select *
+        from noti_board order by bbs_sn desc;
+    </select>
+
+    <select id="songList" resultType="NotiVO">
+        select *
+        from song where date >= DATE_ADD(NOW, INTERVAL -2 DAY);
+    </select>
+
+    <insert id="addSong">
+        INSERT INTO song (stud_no,title,date)
+        VALUES (#{stud_no},#{title},DATE_FORMAT(NOW(), '%Y%m%d'));
+    </insert>
+</mapper>

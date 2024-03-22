@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.domitory.Board.service.BoardMapper">
+<insert id="regist" >
+    INSERT INTO SU_BOARD (
+        STUD_NO,
+        SUB_NM,
+        SUB_CN,
+        SUB_ATCH_FILE_NM,
+        SUB_REG_YMD
+    ) VALUES (
+                 #{STUD_NO},
+                 #{SUB_NM},
+                 #{SUB_CN},
+                 #{SUB_ATCH_FILE_NM},
+                 date_format(now(), '%Y%m%d')
+             )
+
+
+</insert>
+
+<!--    CREATE TABLE SU_FILE (-->
+<!--    SU_FILE_NUM int primary key auto_increment,-->
+<!--    SU_FILE_NAME varchar(100),-->
+<!--    SU_FILE_PATH varchar(100),-->
+<!--    SU_FILE_UUID varchar(100),-->
+<!--    STU_NO varchar(50),-->
+<!--    SU_SN int #게시글NO PK-->
+<!--    );-->
+
+    <select id="getList" resultType="BoardVO">
+        SELECT *, DATE_FORMAT(SUB_REG_YMD, '%Y-%m-%d') AS formatted_date FROM SU_BOARD LIMIT #{cri.pageStart}, #{cri.amount};
+
+    </select>
+
+    <select id="getTotal" resultType="int">
+        select count(*)
+        from SU_BOARD
+    </select>
+
+    <insert id="registFile">
+        <selectKey resultType="int" keyProperty="SUB_SN" order="BEFORE">
+            select max(STUD_NO) from SU_BOARD where SUB_SN = #{SUB_SN}
+        </selectKey>
+
+        insert into SU_FILE(
+        SU_FILE_NAME,
+        SU_FILE_PATH,
+        SU_FILE_UUID,
+        STUD_NO,
+        SUB_SN
+        )
+        values(
+        #{SU_FILE_NAME},
+        #{SU_FILE_PATH},
+        #{SU_FILE_UUID},
+        #{STUD_NO},
+        (SELECT SUB_SN FROM SU_BOARD ORDER BY SUB_SN desc LIMIT 1))
+    </insert>
+
+
+    <select id="getDetail" resultType="BoardVO">
+        SELECT * FROM SU_BOARD
+        WHERE SUB_SN = #{user_id}
+    </select>
+
+    <select id="getImgs" resultType="BoardUploadVO">
+        select * from SU_FILE where SUB_SN = #{SUB_SN}
+    </select>
+
+    <update id="update">
+        update SU_BOARD set
+        SUB_NM = #{SUB_NM} ,SUB_CN = #{SUB_CN}
+        where SUB_SN = #{SUB_SN}
+    </update>
+
+    <delete id="delete">
+        delete from SU_BOARD where SUB_SN = #{sub_sn}
+    </delete>
+
+
+
+</mapper>

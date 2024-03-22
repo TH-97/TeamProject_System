@@ -16,6 +16,7 @@ button, input[type="submit"]{
 #listArea{width: 90%; margin: 0 auto; margin-top: 50px;}
 #ListTable{width: 90%; padding: 0 10px 0 10px; border: none; margin-top: 10px;}
 #modfiyBtn{display: flex; justify-content: flex-end;width: 90%; margin: 0 auto;}
+#modfiyBtn2{display: flex; justify-content: flex-end;width: 90%; margin: 0 auto;}
 
 /* 뱅배정 전용 ccs */
 #categoryArea{width: 90%;height: 300px; border: 1px solid black; margin: 0 auto; margin-top: 30px;display: flex; justify-content: space-around; overflow: scroll;}

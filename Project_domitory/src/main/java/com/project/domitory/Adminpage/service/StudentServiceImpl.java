@@ -1,7 +1,7 @@
 package com.project.domitory.Adminpage.service;
 
 import com.project.domitory.Adminpage.mapper.StudentMapper;
-import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.AdminVO1;
 import com.project.domitory.command.AutoVO;
 import com.project.domitory.command.BuildingVO;
 import com.project.domitory.command.FloorVO;
@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<AdminVO> getname(AdminVO vo) {
+    public List<AdminVO1> getname(AdminVO1 vo) {
         return studentMapper.getname(vo);
     }
 
@@ -57,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
           if(Objects.equals(gndr.getGndr_nm(), "M")){
 
               List<AutoVO> roomList = studentMapper.getRoom();
+
               for(AutoVO list : roomList){
 
 //                  System.out.println(list.getRm_cd() + " " + list.getUsg_clsf() + " " + list.getUse_yn() + " " +list.getAltmnt_nope() );
@@ -64,7 +65,7 @@ public class StudentServiceImpl implements StudentService {
                   if(Objects.equals(list.getUsg_clsf(),"1") &&
                     Objects.equals(list.getUse_yn(), "1") &&
                           list.getAltmnt_nope() < 2){
-                      System.out.println("들어왔니?");
+
 
                       String altmnt_rm_cd = list.getRm_cd();
                       System.out.println(stud_no);
@@ -77,6 +78,7 @@ public class StudentServiceImpl implements StudentService {
                       continue;
                   }
               }
+          
           } else if(Objects.equals(gndr.getGndr_nm(), "F")){
         	  List<AutoVO> roomList = studentMapper.getRoom();
               for(AutoVO list : roomList){
@@ -101,38 +103,53 @@ public class StudentServiceImpl implements StudentService {
               }
 			
 		}
+
       }
 
 
     }
 
     @Override
-    public List<AdminVO> getUserRoom() {
+    public void reset(){
+        List<AdminVO1> list = studentMapper.getUserState();
+
+        for(AdminVO1 vo : list){
+            studentMapper.reset(String.valueOf(vo.getStud_no()));
+        }
+        List<AutoVO> list2 = studentMapper.getRm_cd();
+        for (AutoVO vo :list2){
+            studentMapper.reset2(vo.getRm_cd());
+            System.out.println("들어오니?");
+        }
+    }
+
+    @Override
+    public List<AdminVO1> getUserRoom() {
         return studentMapper.getUserRoom();
     }
 
     @Override
-    public List<AdminVO> getUserRoom2() {
+    public List<AdminVO1> getUserRoom2() {
         return studentMapper.getUserRoom2();
     }
 
     @Override
-    public List<AdminVO> getUserRoom3() {
+    public List<AdminVO1> getUserRoom3() {
         return studentMapper.getUserRoom3();
     }
 
     @Override
-    public List<AdminVO> getUserRoom4() {
+    public List<AdminVO1> getUserRoom4() {
         return studentMapper.getUserRoom4();
     }
 
     @Override
-    public List<AdminVO> getUserRoom5() {
+    public List<AdminVO1> getUserRoom5() {
         return studentMapper.getUserRoom5();
     }
 
     @Override
-    public List<AdminVO> getUserRoom6() {
+    public List<AdminVO1> getUserRoom6() {
         return studentMapper.getUserRoom6();
     }
 

@@ -11,14 +11,14 @@ import com.project.domitory.command.OBAndEarlyAllVO;
 import com.project.domitory.command.OBApplicantVO;
 import com.project.domitory.command.PenaltyVO;
 import com.project.domitory.command.RuleVO;
-import com.project.domitory.command.StudentVO;
+import com.project.domitory.command.StudentVO1;
 
 @Mapper
 public interface MvnApplyMapper {
 	List<MVNApplicantVO> getMvnList(MVNApplicantVO vo);
 	List<EarDepApplicantVO> getEarlyList(EarDepApplicantVO vo);
 	List<OBApplicantVO> getObList(OBApplicantVO vo);
-	StudentVO getStudent(MVNApplicantVO vo);
+	StudentVO1 getStudent(MVNApplicantVO vo);
 	
 	List<OBAndEarlyAllVO> getAllObEarlyList(OBAndEarlyAllVO vo);
 	List<PenaltyVO> getPenaltyList(PenaltyVO vo);
