@@ -83,7 +83,7 @@ public class SecurityConfig{
 		.and()
 		.exceptionHandling().accessDeniedPage("/user/user_deny")
 		.and()	
-		.logout().logoutSuccessUrl("/user/login");
+		.logout().logoutUrl("/logout").logoutSuccessUrl("/user/login");
 		
 		http.rememberMe()
 		.key("domitory") //리멤버미를 쿠키로 동작시키는데 그때, 쿠키에 저장되는 토큰값을 만들 비밀키
@@ -97,7 +97,8 @@ public class SecurityConfig{
 		  http
           .sessionManagement()
               .maximumSessions(1)
-              .expiredUrl("/user/expired");
+              .expiredUrl("/user/expired").expiredSessionStrategy(null);
+             
 
 
 		return http.build();

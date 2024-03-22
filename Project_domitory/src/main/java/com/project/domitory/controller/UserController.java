@@ -30,13 +30,9 @@ public class UserController {
 	private UserService userService ;
 
 	
-	@GetMapping("/student_main")
+	@GetMapping("/mainPage")
 	public String student_main() {
-		return "user/student_main";
-	}
-	@GetMapping("/student_header")
-	public String student_header() {
-		return "user/student_header";
+		return "mainPage";
 	}
 	
 
@@ -119,16 +115,16 @@ public class UserController {
 		return "user/user_deny";
 	}
 
-	@GetMapping("/find_id")
+	@GetMapping("/user_findID")
 	public String find_id() {
 		return "user/user_findID";
 	}
 
-	@GetMapping("/find_pw")
+	@GetMapping("/user_findPW")
 	public String find_pw() {
 		return "user/user_findPW";
 	}
-	@GetMapping("/find_pw_result")
+	@GetMapping("/user_findPW_result")
 	public String find_pw_result() {
 		return "user/user_findPW_result";
 	}
