@@ -37,7 +37,7 @@ public class  BoardServiceImpl implements BoardService {
     }
 
     //업로드경로
-    @Value("/Users/chambitlee/JAVA/course/Spring/workspace/TeamProject_System/upload")
+    @Value("C:\\Users\\user\\Desktop\\ProjectTeam3\\TeamProject_System\\upload")
     private String uploadPath;
 
     //날짜폴더만드는 함수

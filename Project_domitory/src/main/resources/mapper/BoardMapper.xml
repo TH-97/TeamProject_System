@@ -45,25 +45,25 @@
             select max(STUD_NO) from SU_BOARD where SUB_SN = #{SUB_SN}
         </selectKey>
 
-        insert into SU_FILE(
+         insert into SU_FILE(
         SU_FILE_NAME,
         SU_FILE_PATH,
         SU_FILE_UUID,
-        STUD_NO,
+        
         SUB_SN
         )
         values(
         #{SU_FILE_NAME},
         #{SU_FILE_PATH},
-        #{SU_FILE_UUID},
-        #{STUD_NO},
+        #{SU_FILE_UUID}
+       
         (SELECT SUB_SN FROM SU_BOARD ORDER BY SUB_SN desc LIMIT 1))
     </insert>
 
 
     <select id="getDetail" resultType="BoardVO">
         SELECT * FROM SU_BOARD
-        WHERE SUB_SN = #{user_id}
+        WHERE SUB_SN = #{SUB_SN}
     </select>
 
     <select id="getImgs" resultType="BoardUploadVO">

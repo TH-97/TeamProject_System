@@ -70,11 +70,14 @@ public String list(Model model,Criteria cri, HttpSession session) {
                             HttpSession session) {
 
         //vo.setSTUD_NO((String)session.getAttribute("user_id"));
-        vo.setSTUD_NO("admin");
+        vo.setSTUD_NO("20240321");
+        
         // 공백인 이미지는 제거
         list = list.stream().filter(m -> !m.isEmpty()).collect(Collectors.toList());
         // 이미지 타입인지 검사
-
+        System.out.println("------------------------------");
+        System.out.println(vo);
+        System.out.println(list.toString());
         // 3. 이미지를 올린 경우는 서비스로 위임
         int result = boardService.regist(vo, list); // vo는 상품데이터, list에 파일 데이터
         if (result == 1) { // 성공
