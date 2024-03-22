@@ -50,7 +50,7 @@ public class SecurityConfig{
     	return web -> web.ignoring()
         	.requestMatchers(PathRequest
             	.toStaticResources()
-                .atCommonLocations())
+                .atCommonLocations())	
                 .antMatchers("/css/**","/js/**","/img/**");
                  
      }
@@ -70,6 +70,7 @@ public class SecurityConfig{
 //		.antMatchers("/images/**","/js/**","/css/**").permitAll()
 		.antMatchers("/user/login","/user/user_join","/user/joinForm","/loginForm").permitAll()
 		.antMatchers("/admin/**").hasAnyRole("ADMIN","TEST")
+		
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
