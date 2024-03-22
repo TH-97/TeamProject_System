@@ -18,4 +18,11 @@ public class NotiVO {
     //select을 위한
     private String bbs_reg_ymd;
 
+    //song
+    private Integer song_no;
+    private Integer stud_no;
+    private String title;
+    private String date;
+
+
 }

@@ -25,4 +25,14 @@ public class NotiServiceImpl implements NotiService{
     public List<NotiVO> notiList() {
         return notiMapper.notiList();
     }
+
+    @Override
+    public List<NotiVO> songList() {
+        return notiMapper.songList();
+    }
+
+    @Override
+    public void deletSong(Integer song_no) {
+        notiMapper.deletSong(song_no);
+    }
 }
