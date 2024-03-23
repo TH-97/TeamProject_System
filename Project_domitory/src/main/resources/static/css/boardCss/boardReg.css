@@ -54,8 +54,8 @@ img {
 th { text-align: center;}
 .tb {width:830px; border:1px solid #dedede; margin-top:20px;}
 .tb:first-child {margin-top:0;}
-.tb th, .tb td {border:1px solid #dedede; padding:10px 5px; box-sizing:border-box;}
-.tb th {color:#555;}
+.tb th, .tb td {border:1px solid #dedede; padding:10px 5px; box-sizing:border-box; width: 80%}
+.tb th {color:#555; width: 20%}
 
 .tb_col th {border-bottom:1px solid #a2a2a2;}
 .tb_col td {text-align:center;}

@@ -31,7 +31,11 @@
 <!--    );-->
 
     <select id="getList" resultType="BoardVO">
-        SELECT *, DATE_FORMAT(SUB_REG_YMD, '%Y-%m-%d') AS formatted_date FROM SU_BOARD LIMIT #{cri.pageStart}, #{cri.amount};
+        SELECT *, DATE_FORMAT(SUB_REG_YMD, '%Y-%m-%d') AS formatted_date 
+		FROM SU_BOARD 
+		ORDER BY SUB_SN DESC 
+		LIMIT #{cri.pageStart}, #{cri.amount};
+
 
     </select>
 

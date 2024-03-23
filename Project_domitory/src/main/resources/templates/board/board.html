@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,28 +34,26 @@
                     <th scope="col">글번호</th>
                     <th scope="col">제목</th>
                     <th scope="col">작성자</th>
-                    <th scope="col">진행상황</th>
                     <th scope="col">작성일</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="board : ${list}">
-                        <td th:text="${board.SUB_SN}"></td>
-                        <!--<td th:onclick="@{'/boardDetail?sub_sn=' + ${board.SUB_SN}}" th:text="${board.SUB_NM}"></td> -->
-                        <td><a th:href="@{'/board/boardDetail?sub_sn=' + ${board.SUB_SN}}" th:text="${board.SUB_NM}"></a></td>
-                        <td th:text="${board.STUD_NO}"></td>
-                        <td th:text="${board.SUB_CLSF} ? '진행중' : '종료'"></td>
-                        <td th:text="${board.SUB_REG_YMD}"></td>
-                    </tr>
+               	 <th:block th:each="board : ${list}" >
+                    
+	                    <tr th:onclick="|location.href='@{/board/boardDetail(sub_sn=${board.SUB_SN})}'|" style="cursor: pointer;">
+
+	                        <td th:text="${board.SUB_SN}"></td>
+	                        <!--<td th:onclick="@{'/boardDetail?sub_sn=' + ${board.SUB_SN}}" th:text="${board.SUB_NM}"></td> -->
+	                        <td th:text="${board.SUB_NM}"></td>
+	                        <td th:text="${board.STUD_NO}"></td>
+	                        <td th:text="${board.SUB_REG_YMD}"></td>
+	                               
+	                    </tr>
+
+                    </th:block>
                 </tbody>
 
             </table>
-
-            <div class="searchBox">
-                <input type="text" class="textBox">
-                <button class="searchBtn"><h3>검색</h3></button>
-
-            </div>
 
             <div class="bottomBox2">
                 <button class="writeBtn"><a href="/board/boardReg">글쓰기</a></button>
