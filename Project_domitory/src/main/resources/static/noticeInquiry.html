@@ -42,13 +42,13 @@
           </tr>
         </thead>
         <tbody>
-
-          <tr th:each="item:${list}">
-            <td class="bbs_sn" th:text="${item.bbs_sn}"></td>
-            <td th:text="${item.bbs_reg_ymd}"></td>
-            <td th:text="${item.bbs_nm}"></td>
-            <td th:text="${item.bbs_cn}"></td>
-            <td><button class="deletNoti">삭제</button></td>
+<!--          <tr th:each="list,${list}">-->
+<!--            <form action="delectNoti" method="post">-->
+<!--            <td name="bbs_sn" th:text="${list.bbs_sn}"></td>-->
+<!--            <td th:text="${list.bbs_reg_ydn}"></td>-->
+<!--            <td th:text="${list.bbs_nm}"></td>-->
+<!--            <td th:text="${list.bbs_cn}"></td>-->
+            </form>
           </tr>
         </tbody>
         </table>
@@ -122,13 +122,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr th:each="song:${song}">
-                <form action="/deletSong" method="post">
-                <td name="song_no" th:text="${song.song_no}"></td>
-                <td th:text="${song.stud_no}"></td>
-                <td th:text="${song.date}"></td>
-                <td th:text="${song.title}"></td>
-                <td><button class="deletSong">삭제</button></td>
+<!--              <tr th:each="song:${song}">-->
+<!--                <form action="/deletSong" method="post">-->
+<!--                <td name="song_no" th:text="${song.song_no}"></td>-->
+<!--                <td th:text="${song.stud_no}"></td>-->
+<!--                <td th:text="${song.date}"></td>-->
+<!--                <td th:text="${song.title}"></td>-->
+
                 </form>
               </tr>
             </tbody>
@@ -140,26 +140,20 @@
       
       </div>
 </body>
-<script th:inline="javascript">
+<script>
   var modfiyBtn = document.querySelector("#modfiyBtn")
   modfiyBtn.addEventListener("click", () =>{
-    window.open("add","공지사항 작성","width = 600px height=400px top=100 left=100")
+    window.open("add","공지사항 작성","width = 600px height=400px top=100 left=100" )
   });
 
-
-  var listtable = document.querySelector("#ListTable")
-
-  listtable.addEventListener("click", ()=>{
-     var bbs_sn = event.target.parentElement.parentElement.querySelector(".bbs_sn").textContent;
-
-    location.href = `delectNoti?bbs_sn=${bbs_sn}`;
+  var deletNoti = document.querySelector(".deletNoti")
+  deletNoti.addEventListener("click", ()=>{
+    deletNoti.submit();
   });
-
-
 
   var modfiyBtn2 = document.querySelector("#modfiyBtn2")
   modfiyBtn2.addEventListener("click",()=>{
-    modfiyBtn2.submit()
+    modfiyBtn2.submit();
   });
   var songList = document.querySelector("#songList")
   songList.addEventListener("click",()=>{

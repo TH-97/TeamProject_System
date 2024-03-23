@@ -27,6 +27,7 @@ public interface StudentMapper {
     public AutoVO getGndr(int stud_no);
 
     public List<AutoVO> getRoom();
+    public List<AutoVO> getRoom2();
 
 
     public List<AdminVO1> getUserState();

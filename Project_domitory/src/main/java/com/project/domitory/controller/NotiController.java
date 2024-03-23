@@ -2,7 +2,9 @@ package com.project.domitory.controller;
 
 import com.project.domitory.command.NotiVO;
 import com.project.domitory.noti.service.NotiService;
+import com.project.domitory.user.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class NotiController {
     }
     @RequestMapping("/add")
     public String test(){
-        return "/AdminPageHtml/postAdmin";
+        return "AdminPageHtml/postAdmin";
     }
     @PostMapping("/addNoti")
     public String   test2(@RequestParam("bbs_nm")String bbs_nm,
@@ -32,12 +34,17 @@ public class NotiController {
         System.out.println(bbs_nm);
         notiService.addNoti(bbs_nm,bbs_cn);
 
-        return "/AdminPageHtml/postAdmin";
+        return "AdminPageHtml/postAdmin";
     }
-    @PostMapping("/delectNoti")
-    public String test3(@RequestParam("bbs_sn")String bbs_sn){
+    @GetMapping("/delectNoti")
+    public String test3(@RequestParam("bbs_sn")Integer bbs_sn, Model model){
         notiService.delectNoti(bbs_sn);
-        return "/AdminPageHtml/noticeInquiry";
+
+        List<NotiVO> list = notiService.notiList();
+
+        model.addAttribute("list",list);
+
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/notiList")
@@ -46,7 +53,7 @@ public class NotiController {
         List<NotiVO> list = notiService.notiList();
 
         model.addAttribute("list",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/songList")
@@ -55,7 +62,7 @@ public class NotiController {
         List<NotiVO> list = notiService.songList();
 
         model.addAttribute("song",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/deletSong")
@@ -66,13 +73,13 @@ public class NotiController {
         List<NotiVO> list = notiService.songList();
 
         model.addAttribute("song",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/addSong")
-    public String test7(@RequestParam("title")String title){
-
-        String stud_no = "";
+    public String test7(@RequestParam("title")String title, Authentication authentication){
+        MyUserDetails detail = (MyUserDetails) authentication.getPrincipal();
+        String stud_no = detail.getUsername();
 
         notiService.addSong(stud_no,title);
 
