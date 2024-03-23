@@ -105,7 +105,7 @@ public class AdminPageController {
         List<AdminVO1> list10 = new ArrayList<>();
 
 
-        for (AdminVO vo : list) {
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("A101")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A102")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A103")) list3.add(vo);
@@ -136,18 +136,18 @@ public class AdminPageController {
     @RequestMapping(value = "/A2F")
     public String test7(Model model) {
 
-        List<AdminVO> list = studentService.getUserRoom2();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
-        for (AdminVO vo : list) {
+        List<AdminVO1> list = studentService.getUserRoom2();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("A201")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A202")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A203")) list3.add(vo);
@@ -175,18 +175,18 @@ public class AdminPageController {
     @RequestMapping(value = "/A3F")
     public String test8(Model model) {
 
-        List<AdminVO> list = studentService.getUserRoom3();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
-        for (AdminVO vo : list) {
+        List<AdminVO1> list = studentService.getUserRoom3();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("A301")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A302")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("A303")) list3.add(vo);
@@ -215,18 +215,18 @@ public class AdminPageController {
     @RequestMapping(value = "/B1F")
     public String test9(Model model) {
 
-        List<AdminVO> list = studentService.getUserRoom4();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
-        for (AdminVO vo : list) {
+        List<AdminVO1> list = studentService.getUserRoom4();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("B101")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B102")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B103")) list3.add(vo);
@@ -254,18 +254,18 @@ public class AdminPageController {
     @RequestMapping(value = "/B2F")
     public String test10(Model model) {
 
-        List<AdminVO> list = studentService.getUserRoom5();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
-        for (AdminVO vo : list) {
+        List<AdminVO1> list = studentService.getUserRoom5();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("B201")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B202")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B203")) list3.add(vo);
@@ -294,18 +294,18 @@ public class AdminPageController {
     @RequestMapping(value = "/B3F")
     public String test11(Model model) {
 
-        List<AdminVO> list = studentService.getUserRoom6();
-        List<AdminVO> list1 = new ArrayList<>();
-        List<AdminVO> list2 = new ArrayList<>();
-        List<AdminVO> list3 = new ArrayList<>();
-        List<AdminVO> list4 = new ArrayList<>();
-        List<AdminVO> list5 = new ArrayList<>();
-        List<AdminVO> list6 = new ArrayList<>();
-        List<AdminVO> list7 = new ArrayList<>();
-        List<AdminVO> list8 = new ArrayList<>();
-        List<AdminVO> list9 = new ArrayList<>();
-        List<AdminVO> list10 = new ArrayList<>();
-        for (AdminVO vo : list) {
+        List<AdminVO1> list = studentService.getUserRoom6();
+        List<AdminVO1> list1 = new ArrayList<>();
+        List<AdminVO1> list2 = new ArrayList<>();
+        List<AdminVO1> list3 = new ArrayList<>();
+        List<AdminVO1> list4 = new ArrayList<>();
+        List<AdminVO1> list5 = new ArrayList<>();
+        List<AdminVO1> list6 = new ArrayList<>();
+        List<AdminVO1> list7 = new ArrayList<>();
+        List<AdminVO1> list8 = new ArrayList<>();
+        List<AdminVO1> list9 = new ArrayList<>();
+        List<AdminVO1> list10 = new ArrayList<>();
+        for (AdminVO1 vo : list) {
             if (vo.getAltmnt_rm_cd().equals("B301")) list1.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B302")) list2.add(vo);
             if (vo.getAltmnt_rm_cd().equals("B303")) list3.add(vo);

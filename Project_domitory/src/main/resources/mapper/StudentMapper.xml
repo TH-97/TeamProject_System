@@ -43,11 +43,15 @@
 
     <select id="getRoom" resultType="AutoVO">
         select * from rm_info
-            join mvn_rm on rm_info.rm_cd = mvn_rm.rm_cd
+                         join mvn_rm on rm_info.rm_cd = mvn_rm.rm_cd
         where gndr_clsf = "1";
     </select>
 
-
+    <select id="getRoom2" resultType="AutoVO">
+        select * from rm_info
+                          join mvn_rm on rm_info.rm_cd = mvn_rm.rm_cd
+        where gndr_clsf = "2";
+    </select>
 
     <select id="getUserState" resultType="AdminVO1">
         select stud_no from MVN_APLY where STTS_CLSF = 4;
@@ -65,7 +69,7 @@
     </select>
 
     <update id="reset2">
-        update MVN_RM set ALTMNT_NOPE = 0 where rm_cd = ${rm_cd};
+        update MVN_RM set ALTMNT_NOPE = 0 where rm_cd = #{rm_cd};
     </update>
 
 

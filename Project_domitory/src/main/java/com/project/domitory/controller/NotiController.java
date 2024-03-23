@@ -23,7 +23,7 @@ public class NotiController {
     }
     @RequestMapping("/add")
     public String test(){
-        return "/AdminPageHtml/postAdmin";
+        return "AdminPageHtml/postAdmin";
     }
     @PostMapping("/addNoti")
     public String   test2(@RequestParam("bbs_nm")String bbs_nm,
@@ -32,12 +32,12 @@ public class NotiController {
         System.out.println(bbs_nm);
         notiService.addNoti(bbs_nm,bbs_cn);
 
-        return "/AdminPageHtml/postAdmin";
+        return "AdminPageHtml/postAdmin";
     }
     @PostMapping("/delectNoti")
-    public String test3(@RequestParam("bbs_sn")String bbs_sn){
+    public String test3(@RequestParam("bbs_sn")int bbs_sn){
         notiService.delectNoti(bbs_sn);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/notiList")
@@ -46,7 +46,7 @@ public class NotiController {
         List<NotiVO> list = notiService.notiList();
 
         model.addAttribute("list",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/songList")
@@ -55,7 +55,7 @@ public class NotiController {
         List<NotiVO> list = notiService.songList();
 
         model.addAttribute("song",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/deletSong")
@@ -66,7 +66,7 @@ public class NotiController {
         List<NotiVO> list = notiService.songList();
 
         model.addAttribute("song",list);
-        return "/AdminPageHtml/noticeInquiry";
+        return "AdminPageHtml/noticeInquiry";
     }
 
     @PostMapping("/addSong")

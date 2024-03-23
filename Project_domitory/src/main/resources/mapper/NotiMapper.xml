@@ -22,7 +22,7 @@
         from song where date >= DATE_ADD(NOW, INTERVAL -2 DAY);
     </select>
 
-    <delete id="delectNoti">
+    <delete id="delectSong">
         DELETE FROM song WHERE song_no = #{song_no};
     </delete>
 

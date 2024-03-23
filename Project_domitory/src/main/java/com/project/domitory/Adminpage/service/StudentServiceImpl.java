@@ -80,7 +80,7 @@ public class StudentServiceImpl implements StudentService {
               }
           
           } else if(Objects.equals(gndr.getGndr_nm(), "F")){
-        	  List<AutoVO> roomList = studentMapper.getRoom();
+        	  List<AutoVO> roomList = studentMapper.getRoom2();
               for(AutoVO list : roomList){
 
 //                  System.out.println(list.getRm_cd() + " " + list.getUsg_clsf() + " " + list.getUse_yn() + " " +list.getAltmnt_nope() );

@@ -17,7 +17,7 @@ public class NotiServiceImpl implements NotiService{
     }
 
     @Override
-    public void delectNoti(String bbs_sn) {
+    public void delectNoti(int bbs_sn) {
         notiMapper.delectNoti(bbs_sn);
     }
 
