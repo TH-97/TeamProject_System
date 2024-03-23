@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/boardCss/boardReg.css" type="text/css">
+</head>
+<body>
+	<div class="topBox">
+		<div class="postName">
+			<h2 class="suggestions">건의사항</h2>
+		</div>
+	</div>
+
+	<div class="postTitle">
+		<div class="content">
+			<section>
+				<input type="hidden" class="sub_sn" th:value="${vo.SUB_SN}">
+				<table class="tb tb_row">
+					<tbody>
+						<tr>
+							<th scope="row" style="text-align: center">등록일</th>
+							<td th:text="${ vo.SUB_REG_YMD }"></td>
+						</tr>
+						<tr>
+							<th scope="row" style="text-align: center;">제목</th>
+							<td>[[ ${vo.SUB_NM} ]]</td>
+						</tr>
+						<tr>
+							<th scope="row">작성자</th>
+							<td colspan="3">[[ ${vo.STUD_NO} ]]</td>
+						</tr>
+						<tr>
+							<th scope="row" style="text-align: center">내용</th>
+							<td colspan="3" style="height: 600px;">[[ ${vo.SUB_CN} ]]</td>
+						</tr>
+						<tr th:each="imgs : ${imgs}">
+							<th scope="row" style="text-align: center">파일
+								<button
+									th:attr="onclick='fileDown(&quot;' + ${imgs.SU_FILE_NAME} + '&quot;, &quot;' + ${imgs.SU_FILE_PATH} + '&quot;, &quot;' + ${imgs.SU_FILE_UUID} + '&quot;)'"
+									style="border: none; border-radius: 3px; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);'">download</button>
+							</th>
+							<td><img
+								th:if="${#strings.contains(imgs.SU_FILE_NAME, '.png') 
+							          or #strings.contains(imgs.SU_FILE_NAME, '.jpg') 
+							          or #strings.contains(imgs.SU_FILE_NAME, '.jpeg') 
+							          or #strings.contains(imgs.SU_FILE_NAME, '.gif') 
+							          or #strings.contains(imgs.SU_FILE_NAME, '.bmp') 
+							          or #strings.contains(imgs.SU_FILE_NAME, '.webp')}"
+								th:src="@{display?(filename=${imgs.SU_FILE_NAME},filepath=${imgs.SU_FILE_PATH},fileuuid=${imgs.SU_FILE_UUID} ) }"
+								alt="image">
+								<p th:unless="${#strings.contains(imgs.SU_FILE_NAME, '.png') 
+						                      or #strings.contains(imgs.SU_FILE_NAME, '.jpg') 
+						                      or #strings.contains(imgs.SU_FILE_NAME, '.jpeg') 
+						                      or #strings.contains(imgs.SU_FILE_NAME, '.gif') 
+						                      or #strings.contains(imgs.SU_FILE_NAME, '.bmp') 
+						                      or #strings.contains(imgs.SU_FILE_NAME, '.webp')}"
+						         src="#" alt="image">
+						        [[${imgs.SU_FILE_NAME}]]</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<button th:if="${vo.STUD_NO == #authentication.principal.username}"
+					onclick="del()" class="delete"
+					style="float: right; margin-right: 35px; margin-top: 20px; border: none; border-radius: 3px; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); width: 60px;">삭제</button>
+				<button th:if="${vo.STUD_NO == #authentication.principal.username}"
+					onclick="update()" class="update"
+					style="float: right; margin-right: 15px; margin-top: 20px; border: none; border-radius: 3px; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); width: 60px;">수정</button>
+				<button onclick="window.history.back()"
+					style="margin-left: 35px; margin-top: 20px; border: none; border-radius: 3px; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); width: 60px;">목록</button>
+		</div>
+	</div>
+
+	<script th:inline="javascript">
+   function update(){
+    location.href='updateBoard?subNo='+[[${vo.SUB_SN}]];
+   }
+   function del(){
+     if(confirm("삭제하시겠습니까?")) {
+       var sub_sn = document.querySelector('.sub_sn').value;
+       location.href = 'deleteBoard?sub_sn=' + sub_sn;
+     }
+   }
+   function fileDown(a,b,c){
+     location.href = 'fileDownload?filename='+a+'&filepath='+b+'&uuid='+c;
+   }
+
+</script>
+</body>
+</html>

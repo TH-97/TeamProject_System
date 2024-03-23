@@ -9,7 +9,7 @@
     </insert>
 
     <delete id="delectNoti">
-        DELETE FROM noti_board WHERE id = #{bbs_sn};
+        DELETE FROM noti_board WHERE bbs_sn = #{bbs_sn};
     </delete>
     
     <select id="notiList" resultType="NotiVO">
@@ -22,7 +22,8 @@
         from song where date >= DATE_ADD(NOW, INTERVAL -2 DAY);
     </select>
 
-    <delete id="delectNoti">
+
+    <delete id="delectSong">
         DELETE FROM song WHERE song_no = #{song_no};
     </delete>
 
