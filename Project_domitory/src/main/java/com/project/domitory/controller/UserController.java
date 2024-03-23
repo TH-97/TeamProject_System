@@ -1,5 +1,7 @@
 package com.project.domitory.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domitory.command.AdminVO;
+import com.project.domitory.command.NotiVO;
 import com.project.domitory.command.StudentVO;
 import com.project.domitory.command.UserVO;
+import com.project.domitory.noti.service.NotiService;
 import com.project.domitory.user.service.UserMapper;
 import com.project.domitory.user.service.UserService;
 
@@ -24,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptpasswordEncoder;
+	
+	@Autowired
+	private NotiService notiService;
 
 	@Autowired
 	@Qualifier("userService")
@@ -31,7 +38,11 @@ public class UserController {
 
 	
 	@GetMapping("/mainPage")
-	public String student_main() {
+	public String student_main(Model model) {
+		
+        List<NotiVO> list = notiService.notiList();
+
+        model.addAttribute("list",list);
 		return "mainPage";
 	}
 	

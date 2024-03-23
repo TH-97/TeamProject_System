@@ -19,7 +19,7 @@
 
     <select id="songList" resultType="NotiVO">
         select *
-        from song where date >= DATE_ADD(NOW, INTERVAL -2 DAY);
+        from song where date >= DATE_ADD(NOW(), INTERVAL -2 DAY);
     </select>
 
 

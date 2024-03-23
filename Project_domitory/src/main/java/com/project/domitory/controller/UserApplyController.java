@@ -52,10 +52,10 @@ public class UserApplyController {
 			userApplyService.updateDistance(studNo, distance);
 		}else {
 			model.addAttribute("msg", "중복 신청 불가");
-			return "user/mainPage";
+			return "mainPage";
 		}
 		model.addAttribute("msg", "신청 완료");	
-		return "user/mainPage";
+		return "mainPage";
 
 	}
 	
@@ -75,7 +75,7 @@ public class UserApplyController {
 		
 		userApplyService.insertEarDepApply(vo);
 		model.addAttribute("msg", "신청 완료");
-		return "user/mainPage";
+		return "mainPage";
 	}
 	
 	//외박신청서 작성페이지

@@ -108,7 +108,7 @@ caption {display:none; width:0; height:0; margin-top:-1px; overflow:hidden; visi
 .board_list thead th {border-bottom:1px solid #ccc; padding:13px 0; color:#3b3a3a; text-align: center; vertical-align:middle;}
 .board_list tbody td {border-top:1px solid #ccc; padding:13px 0; text-align:center; vertical-align:middle;}
 .board_list tbody tr:first-child td {border:none;}
-.board_list tbody tr:hover{background:#ffff99;}
+.board_list tbody tr:hover{background: #ccc;}
 .board_list tbody td.title {text-align:left; padding-left:20px;}
 .board_list tbody td a {display:inline-block}
 
@@ -122,6 +122,249 @@ caption {display:none; width:0; height:0; margin-top:-1px; overflow:hidden; visi
 .btn:hover {background: #6b9ab8;}
 
 .file_list a {display:inherit !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#table{width: 100%; margin-top: 10px;}
+
+#notiList{box-shadow: 1px 1px 3px 1px #dadce0; border-radius: 10px; width: 300px; margin: 0 auto;padding: 30px 20px; text-align: center;}
+.outer {
+    width: 1240px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.inner-list {
+    display: flex;
+    transition: .3s ease;
+    transition-delay: 1s;
+    height: 100%;
+}
+.inner {
+    border: none;
+    padding: 0;
+}
+.button-list {
+    text-align: center;
+}
+.contentboxwhole{
+    display: flex;
+}
+.contentbox{
+
+    height: 600px;
+    margin-top: 50px ;
+    width: 1240px;
+    margin: 0 auto;
+
+}
+
+.innercontentbox{
+
+    margin-top: 5%;
+    float: left;
+    height: 80%;
+    width: 100%;
+
+}
+
+.content1{
+
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+
+
+}
+.content2{
+    text-align: center;
+
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+    float: right;
+}
+
+
+.modal{
+    position:absolute;
+    display:none;
+
+    justify-content: center;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+}
+.modal_body{
+    position:absolute;
+    top:50%;
+    /* 모달을 화면가운데 놓기위함.   */
+
+
+    width:800px;
+    /* //모달의 가로크기    */
+    height:1000px;
+    /* //모달의 세로크기  */
+
+    padding:40px;
+    border-radius: 25px;
+    text-align: center;
+
+    background-color: rgb(255,255,255); opacity: 0.8;
+    /* //모달창 배경색 흰색 */
+    border-radius:10px;
+    /* //테두리  */
+    box-shadow:0 2px 3px 0 rgba(34,36,38,0.15);
+    /* //테두리 그림자  */
+
+    transform:translateY(-50%);
+    /* //모듈창열었을때 위치설정 가운데로  */
+    z-index: 99px;
+}
+.modal_body .closeBtn {
+    float: right;
+    top: 0;
+    z-index: 100px;
+}
+
+.contentbox2{
+
+    height: 600px;
+    width: 1240px;
+    margin-top: 50px;
+
+}
+.content3{
+
+    margin-top: 3%;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.footer{
+    background-color: #6a769f;
+    height: 300px;
+}
+
+footer{
+    margin-top: 50px;
+}
+.f_uniname{
+    width: 20%;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 30px ;
+
+}
+.f_textbox{
+    width: 50%;
+    height: 80%;
+    float: right;
+    margin-right: 10%;
+    display: inline-block;
+    margin-top: 30px;
+
+}
+.f_textboxinner{
+    margin-top: 20px;
+}
+
+
+.f_adress{
+    margin-top: 70px;
+}
+
+
+
+
+.header, .h_uniname,  .musicrequest, .right{ display: inline-block; }
+.header{
+    height: 100px;
+    width: 100%;
+    margin-top: 15px;
+}
+.innerheader{
+    text-align: center;
+    height: 50%;
+    margin-top: 15px;
+}
+
+.h_uniname{
+    float: left;
+    height: 100%;
+    width: 250px;
+    padding-top: 10px;
+}
+.musicrequest{
+    float: center;
+    margin-top: 20px;
+    height: 100%;
+    width: 600px;
+}
+form{
+    height: 50px;
+}
+.musicrequest > button{
+    height: 25px;
+    width: 40px;
+}
+.right{
+    float: right;
+    margin-right: 20px;
+    padding-top: 20px;
+    height: 100%;
+    width: 10%;
+
+}
+.nav {
+    list-style: none;
+    height: 65px;
+    width: 100%;
+    text-align: center;
+    background-color: #6a769f;
+    padding-top: 3px;
+
+}
+.innernav{
+    text-align: center;
+    height: 50%;
+    margin-top: 20px;
+
+}
+
+li{
+    display: inline;
+    margin: 80px;
+    height: 100%;
+}
+li :hover{
+    color: black;
+    font-weight: 800;
+}
+li > a{
+    font-size: 18px;
+    text-decoration: none;
+}
+.menu{
+    color: white;
+
+}
+
 
 
 

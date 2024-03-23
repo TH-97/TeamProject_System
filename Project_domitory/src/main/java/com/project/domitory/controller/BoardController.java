@@ -70,10 +70,11 @@ public String list(Model model,Criteria cri, HttpSession session) {
     public String boardForm(BoardVO vo,
                             RedirectAttributes ra,
                             @RequestParam("file") List<MultipartFile> list,
-                            HttpSession session) {
+                            Authentication authentication) {
 
         //vo.setSTUD_NO((String)session.getAttribute("user_id"));
-        vo.setSTUD_NO("20240321");
+        
+        vo.setSTUD_NO(authentication.getName());
         
         // 공백인 이미지는 제거
         list = list.stream().filter(m -> !m.isEmpty()).collect(Collectors.toList());

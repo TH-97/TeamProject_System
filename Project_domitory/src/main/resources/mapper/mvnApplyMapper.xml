@@ -58,8 +58,7 @@
 		s.snths_scr desc) as rm , s.* from mvn_aply m
 		left join student s on
 		m.STUD_NO = s.STUD_NO
-		where MVN_RCRT_NO = #{mvnRcrtNo} and SNTHS_SCR >=
-		3.5 and STTS_CLSF = 1 and GNDR_NM = 'M') a
+		where MVN_RCRT_NO = #{mvnRcrtNo} and  STTS_CLSF = 1 and GNDR_NM = 'M') a
 		where rm > 60);
 	</update>
 	<update id="applyFilterWomen">
@@ -69,8 +68,7 @@
 		s.snths_scr desc) as rm , s.* from mvn_aply m
 		left join student s on
 		m.STUD_NO = s.STUD_NO
-		where MVN_RCRT_NO = #{mvnRcrtNo} and SNTHS_SCR >=
-		3.5 and STTS_CLSF = 1 and GNDR_NM = 'F') a
+		where MVN_RCRT_NO = #{mvnRcrtNo} and  STTS_CLSF = 1 and GNDR_NM = 'F') a
 		where rm > 60);
 	</update>
 	

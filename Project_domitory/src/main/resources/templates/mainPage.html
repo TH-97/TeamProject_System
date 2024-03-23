@@ -6,6 +6,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/mainPage.css">
 </head>
+
 <body>
 
   <div class="header">
@@ -14,8 +15,8 @@
             <p style="font-size: 30px; font-weight: bold;">중정대학생활관<p>
         </div>
         <div class="musicrequest">
-          <form action="/addSong" method="post" name="title" accept-charset="UTF-8">
-              <input size="50" type="text" placeholder="노래를 신청해보세요!">
+          <form action="/addSong" method="post" accept-charset="UTF-8">
+              <input size="50"name="title" type="text" placeholder="노래를 신청해보세요!">
               <input size="10"  type="submit" value="신청">
           </form>
 
@@ -66,6 +67,32 @@
                     <br>
                     <hr>
                     <div>
+                     <table class="board_list">
+                <colgroup>
+                    <col width="15%"/>
+                    <col width="*"/>
+                    <col width="15%"/>
+                    <col width="25%"/>
+                </colgroup>
+                <thead>
+                <tr>
+            <th>번호</th>
+            <th>날짜</th>
+            <th>제목</th>
+            <th>내용</th>
+          </tr>
+                </thead>
+                <tbody>
+               	 <tr th:each="item:${list}">
+            <td class="bbs_sn" th:text="${item.bbs_sn}"></td>
+            <td th:text="${item.bbs_reg_ymd}"></td>
+            <td th:text="${item.bbs_nm}"></td>
+            <td th:text="${item.bbs_cn}"></td>
+          </tr>
+                </tbody>
+
+            </table>
+
 
                     </div>
                 </div>
@@ -74,7 +101,8 @@
 
         </div>
     </div>
-
+    
+    
 
     <div class="footer">
       <div class="f_uniname">
@@ -164,4 +192,10 @@
 
 </script>
 <script src=""></script>
+<script th:inline="javascript">
+	var msg = [[${msg}]];
+	if(msg != null){
+		alert(msg);
+	}
+</script>
 </html>

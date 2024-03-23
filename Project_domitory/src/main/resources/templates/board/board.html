@@ -5,13 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/boardCss/board.css">
-
     <style>
         *{list-style: none}
 
     </style>
 </head>
 <body>
+ <div class="header">
+    <div class="innerheader">
+        <div class="h_uniname">
+            <p style="font-size: 30px; font-weight: bold;">중정대학생활관<p>
+        </div>
+        <div class="musicrequest">
+          <form action="/addSong" method="post" name="title" accept-charset="UTF-8">
+              <input size="50" type="text" placeholder="노래를 신청해보세요!">
+              <input size="10"  type="submit" value="신청">
+          </form>
+
+      </div>
+
+        <div class="right">
+            <a href="/logout">로그아웃</a>
+        </div>
+    </div>
+    
+</div>
+
+
+<div class="nav">
+    <div class="innernav">
+        <li><a class="menu" href="">공지사항</a></li>
+        <li><a class="menu" href="/user/mvnApply">입실신청</a></li>
+        <li><a class="menu" href="/user/obApply">외박신청</a></li>
+        <li><a class="menu" href="/board/board">건의사항</a></li>
+        <li><a class="menu" href="/user/earlyApply">퇴실신청</a></li>
+    </div>
+</div>
+	
 
     <div class="topBox">
         <div class="postName">

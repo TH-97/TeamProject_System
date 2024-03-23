@@ -83,7 +83,7 @@ public class NotiController {
 
         notiService.addSong(stud_no,title);
 
-        return "mainPage";
+        return "redirect:/user/mainPage";
     }
 
 }
