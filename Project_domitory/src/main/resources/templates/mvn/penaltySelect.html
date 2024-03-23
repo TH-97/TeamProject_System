@@ -31,6 +31,11 @@
 		document.querySelector("#mvnRcrtNo").value = mvnRcrtNo;
 		document.querySelector("#userNm").value = userNm;
 	}
+	
+	function getRuleNO(e){
+		console.log(e.parentElement.parentElement.children[0].innerText)
+		document.querySelector("#ruleNo").value = e.parentElement.parentElement.children[0].innerText;
+	}
 </script>
 <body>
 	<section style="text-align: center;">
@@ -173,11 +178,11 @@
 						</thead>
 						<tbody>
 							<tr th:each="vo : ${ruleVO}">
-									<td>[[${vo.rule_no}]]<input type="hidden" name="rule_no" th:value="${vo.rule_no}"></td>
+									<td >[[${vo.rule_no}]]</td>
 									<td>[[${vo.rule_dtl}]]</td>
 									
 									<td>[[${vo.rew_scr}]]</td>
-									<td><input type="radio" name="pnPnt" th:value="${vo.rew_scr}" required="required"></td>						
+									<td><input type="radio" name="pnPnt" th:value="${vo.rew_scr}" required="required" onclick = "getRuleNO(this)"></td>						
 							</tr>
 							
 						</tbody>
@@ -187,6 +192,7 @@
 				</div>
 				<br>
 				<div class="penalBtn">
+					<input type="hidden" name="rule_no" id="ruleNo">
 					<input type="hidden" name="user_nm" id="userNm"> 
 					<input type="hidden" name="stud_no" id="studNo"  >
 					<input type="hidden" name="mvn_rcrt_no" id="mvnRcrtNo"  >

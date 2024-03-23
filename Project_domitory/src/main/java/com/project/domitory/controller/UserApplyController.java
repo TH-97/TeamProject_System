@@ -52,17 +52,17 @@ public class UserApplyController {
 			userApplyService.updateDistance(studNo, distance);
 		}else {
 			model.addAttribute("msg", "중복 신청 불가");
-			return "user/apply/userMain";
+			return "user/mainPage";
 		}
 		model.addAttribute("msg", "신청 완료");	
-		return "user/apply/userMain";
+		return "user/mainPage";
 
 	}
 	
 	//퇴실신청서 작성페이지
 	@GetMapping("/earlyApply")
-	public String earlyApply(Model model) {
-		String userNo = "202403225";
+	public String earlyApply(Model model , Authentication authentication) {
+		String userNo = authentication.getName();;
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		return "user/apply/early_aply";
 	}
@@ -75,13 +75,13 @@ public class UserApplyController {
 		
 		userApplyService.insertEarDepApply(vo);
 		model.addAttribute("msg", "신청 완료");
-		return "user/apply/userMain";
+		return "user/mainPage";
 	}
 	
 	//외박신청서 작성페이지
 	@GetMapping("/obApply")
-	public String obApply(Model model) {
-		String userNo = "202403225";
+	public String obApply(Model model , Authentication authentication) {
+		String userNo = authentication.getName();
 		model.addAttribute("userVO", userApplyService.getStudent(userNo));
 		return "user/apply/ob_aply";
 	}
@@ -95,7 +95,7 @@ public class UserApplyController {
 		userApplyService.insertObApply(vo);
 		model.addAttribute("msg", "신청 완료");
 		
-		return "user/apply/userMain";
+		return "redirect:/user/mainPage";
 	}
 	
 
