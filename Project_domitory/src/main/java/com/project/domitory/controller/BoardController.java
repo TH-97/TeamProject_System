@@ -5,6 +5,8 @@ import com.project.domitory.util.Criteria;
 import com.project.domitory.command.BoardUploadVO;
 import com.project.domitory.command.BoardVO;
 import com.project.domitory.command.PageVO;
+import com.project.domitory.user.security.MyUserDetails;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -122,13 +125,12 @@ public String list(Model model,Criteria cri, HttpSession session) {
         return new ResponseEntity<>(arr, HttpStatus.OK);
     }
 
-    @GetMapping("updateBoard")
-    public String updateBoard(Model model, HttpSession session){
-        Model savedModel = (Model)session.getAttribute("modelData");
-        if(savedModel !=null){
-            model.addAllAttributes(savedModel.asMap());
-        }
-        return "/board/boardUpdate";
+    @GetMapping("/updateBoard")
+    public String updateBoard(Model model, Authentication authentication, @RequestParam("subNo") Integer subNo){
+    	MyUserDetails details = (MyUserDetails)authentication.getPrincipal();
+    	System.out.println(subNo);
+    	model.addAttribute("vo", boardService.getDetail(subNo));
+        return "board/boardUpdate";
     }
 
 

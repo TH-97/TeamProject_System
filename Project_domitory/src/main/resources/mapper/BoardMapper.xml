@@ -49,13 +49,13 @@
         SU_FILE_NAME,
         SU_FILE_PATH,
         SU_FILE_UUID,
-        
         SUB_SN
+ 
         )
         values(
         #{SU_FILE_NAME},
         #{SU_FILE_PATH},
-        #{SU_FILE_UUID}
+        #{SU_FILE_UUID},
        
         (SELECT SUB_SN FROM SU_BOARD ORDER BY SUB_SN desc LIMIT 1))
     </insert>
