@@ -17,7 +17,9 @@ public class NotiServiceImpl implements NotiService{
     }
 
     @Override
-    public void delectNoti(int bbs_sn) {
+    public void delectNoti(Integer bbs_sn) {
+        System.out.println("비비에스됨");
+
         notiMapper.delectNoti(bbs_sn);
     }
 

@@ -2,7 +2,9 @@ package com.project.domitory.controller;
 
 import com.project.domitory.command.NotiVO;
 import com.project.domitory.noti.service.NotiService;
+import com.project.domitory.user.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +36,14 @@ public class NotiController {
 
         return "AdminPageHtml/postAdmin";
     }
-    @PostMapping("/delectNoti")
-    public String test3(@RequestParam("bbs_sn")int bbs_sn){
+    @GetMapping("/delectNoti")
+    public String test3(@RequestParam("bbs_sn")Integer bbs_sn, Model model){
         notiService.delectNoti(bbs_sn);
+
+        List<NotiVO> list = notiService.notiList();
+
+        model.addAttribute("list",list);
+
         return "AdminPageHtml/noticeInquiry";
     }
 
@@ -70,9 +77,9 @@ public class NotiController {
     }
 
     @PostMapping("/addSong")
-    public String test7(@RequestParam("title")String title){
-
-        String stud_no = "";
+    public String test7(@RequestParam("title")String title, Authentication authentication){
+        MyUserDetails detail = (MyUserDetails) authentication.getPrincipal();
+        String stud_no = detail.getUsername();
 
         notiService.addSong(stud_no,title);
 

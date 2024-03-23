@@ -72,7 +72,7 @@ public class StudentServiceImpl implements StudentService {
                       System.out.println(altmnt_rm_cd);
                       studentMapper.setRoom(altmnt_rm_cd, String.valueOf(stud_no));
                       studentMapper.setRoom2(altmnt_rm_cd);
-                      return;
+                      break;
 
                   } else if (list.getAltmnt_nope() == 2) {
                       continue;
@@ -95,7 +95,7 @@ public class StudentServiceImpl implements StudentService {
                       System.out.println(altmnt_rm_cd);
                       studentMapper.setRoom(altmnt_rm_cd, String.valueOf(stud_no));
                       studentMapper.setRoom2(altmnt_rm_cd);
-                      return;
+                      break;
 
                   } else if (list.getAltmnt_nope() == 2) {
                       continue;
@@ -119,7 +119,6 @@ public class StudentServiceImpl implements StudentService {
         List<AutoVO> list2 = studentMapper.getRm_cd();
         for (AutoVO vo :list2){
             studentMapper.reset2(vo.getRm_cd());
-            System.out.println("들어오니?");
         }
     }
 
