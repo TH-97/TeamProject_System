@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="css/allList.css">
+</head>
+<body>
+
+
+	<div id="listArea">
+
+		<table style="margin-top: 30px; width: 100%;">
+			<tr>
+				<th>퇴실 신청 조회</th>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="detailsList">
+
+
+						<table id="ListTable">
+
+							<thead>
+								<tr>
+									<th>퇴실신청번호</th>
+									<th>입주모집번호</th>
+									<th>학번</th>
+									<th>이름</th>
+									<th>입주호실코드</th>
+									<th>중도 퇴실 사유</th>
+									<th>신청일자</th>
+									<th>승인일자</th>
+									<th>환불계좌</th>
+									<th>비고</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="vo : ${EarList}">
+									<td>[[${vo.ear_dep_no}]]</td>
+									<td>[[${vo.mvn_rcrt_no}]]</td>
+									<td>[[${vo.stud_no}]]</td>
+									<td>[[${vo.user_nm}]]</td>
+									<td>[[${vo.altmnt_rm_cd}]]</td>
+									<td>[[${vo.ear_dep_rsn}]]</td>
+									<td>[[${vo.aply_ymd}]]</td>
+									<td th:if="${vo.conf_ymd == null}">
+										<form action="/updateEarly" method="post">
+											<input type="hidden" name="ear_dep_no" th:value="${vo.ear_dep_no}">
+											<input type="hidden" name="MVN_RCRT_NO" th:value="${vo.mvn_rcrt_no}">
+											<input type="hidden" name="ALTMNT_RM_CD" th:value="${vo.altmnt_rm_cd}">
+											<input type="hidden" name="STUD_NO" th:value="${vo.stud_no}">
+											<select name="DEP_CLSF">
+												<option value="2">만기</option>
+												<option value="3">중도</option>
+												<option value="4">벌점</option>
+											</select> 
+											<input type="submit" value="퇴실처리하기">
+										</form>
+									</td>
+									<td th:if="${vo.conf_ymd != null}">[[${vo.conf_ymd}]]</td>
+									<td>[[${vo.rfnd_actno}]]</td>
+									<td>[[${vo.rmrk}]]</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

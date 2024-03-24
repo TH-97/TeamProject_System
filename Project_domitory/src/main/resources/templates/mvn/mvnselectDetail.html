@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/allList.css">
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-right: 20px;
+}
+
+th, td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 8px 16px;
+}
+
+th {
+	height: 20px;
+	background-color: #efefef;
+}
+
+th:nth-child(1) {
+	width: 40%;
+}
+
+th:nth-child(2) {
+	width: 60%;
+}
+</style>
+</head>
+
+<body>
+	<p style=" margin-top: 50px; border: 1px solid black; border-bottom:none; text-align: center;
+	background-color: #efefef; font-weight: bold;">입주자 상세 정보</p>
+	<section style="border: 1px solid black; padding: 50px 100px;  margin-bottom: 50px; text-align: center;">
+		
+		<div style="display: flex;" >
+			<table>
+				<tr>
+					<th>항목</th>
+					<th>내용</th>
+				</tr>
+				<tr>
+					<td>입주모집번호</td>
+					<td th:text="${mvndetailVO.get(0).MVN_RCRT_NO}"></td>
+				</tr>
+				<tr>
+					<td>학번</td>
+					<td th:text="${mvndetailVO.get(0).STUD_NO}"></td>
+				</tr>
+				<tr>
+					<td>호실</td>
+					<td th:text="${mvndetailVO.get(0).ALTMNT_RM_CD}"></td>
+				</tr>
+				<tr>
+					<td>상태구분 <br> [1:신청/2:선발/3:배정/4:입주/5:퇴사]
+					</td>
+					<td>[[${mvndetailVO.get(0).STTS_CLSF == '1' ? '신청' : ''}]]
+						[[${mvndetailVO.get(0).STTS_CLSF == '2' ? '선발실패' : ''}]]
+						[[${mvndetailVO.get(0).STTS_CLSF == '2' ? '선발' : ''}]]
+						[[${mvndetailVO.get(0).STTS_CLSF == '3' ? '배정' : ''}]]
+						[[${mvndetailVO.get(0).STTS_CLSF == '4' ? '입주' : ''}]]
+						[[${mvndetailVO.get(0).STTS_CLSF == '5' ? '퇴사' : ''}]]</td>
+				</tr>
+				<tr>
+					<td>신청일자</td>
+					<td th:text="${mvndetailVO.get(0).APLY_YMD}"></td>
+				</tr>
+				<tr>
+					<td>배정일자</td>
+					<td th:text="${mvndetailVO.get(0).CONF_YMD}"></td>
+				</tr>
+				<tr>
+					<td>선발일자</td>
+					<td th:text="${mvndetailVO.get(0).ALTMNT_YMD}"></td>
+				</tr>
+				<tr>
+					<td>입주일자</td>
+					<td th:text="${mvndetailVO.get(0).MVN_YMD}"></td>
+				</tr>
+				<tr>
+					<td>퇴실입자</td>
+					<td th:text="${mvndetailVO.get(0).DEP_YMD}"></td>
+				</tr>
+				<tr>
+					<td>퇴실구분 <br> [1.퇴실안함/2:만기/3:중도/4:벌점]
+					</td>
+					<td>[[${mvndetailVO.get(0).DEP_CLSF == '1' ? '퇴실안함' : ''}]]
+						[[${mvndetailVO.get(0).DEP_CLSF == '2' ? '만기' : ''}]]
+						[[${mvndetailVO.get(0).DEP_CLSF == '3' ? '중도' : ''}]]
+						[[${mvndetailVO.get(0).DEP_CLSF == '4' ? '벌점' : ''}]]</td>
+				</tr>
+		
+			</table>
+
+			<table>
+				<tr>
+					<th>항목</th>
+					<th>내용</th>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td th:text="${studentVO.user_nm}"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td th:text="${studentVO.gndr_nm}"></td>
+				</tr>
+				<tr>
+					<td>학점</td>
+					<td th:text="${studentVO.snths_scr}"></td>
+				</tr>
+				<tr>
+					<td>학년</td>
+					<td th:text="${studentVO.stud_gr}"></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td th:text="${studentVO.stud_pn}"></td>
+				</tr>
+				<tr>
+					<td>벌점</td>
+					<td th:text="${studentVO.pn_pnt}"></td>
+				</tr>
+				<tr>
+					<td>학과명</td>
+					<td th:text="${studentVO.mj}"></td>
+				</tr>
+				<tr>
+					<td>회원주소</td>
+					<td th:text="${studentVO.stud_ad}"></td>
+				</tr>
+				<tr>
+					<td>학교까지거리</td>
+					<td th:text="${studentVO.stud_dist}"></td>
+				</tr>
+			</table>
+		</div>
+
+	</section>
+
+
+	<script src="https://kit.fontawesome.com/d71a4a6ef8.js"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

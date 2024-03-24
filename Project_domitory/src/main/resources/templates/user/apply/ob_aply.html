@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>외박신청</title>
+</head>
+<body>
+    <section id="ob_section" >
+      <form action="obInsert" method="post">
+      <div class="ob_apply_container">
+          <div class="ob_apply_header">
+            <h1>외박 신청서</h1>
+          </div>
+
+          <div class="ob_apply_detail">
+            
+              <h1>신청 정보</h1>
+              <p>이름 : [[${userVO.user_nm}]]</p>
+              <input type="hidden" name="stud_no" th:value="${userVO.stud_no}">
+              
+          
+          </div>
+
+          <div class="ob_apply_user">
+             <h1>외박 신청 기간</h1>
+             
+             <label for="start_date"><p>외박 시작 기간 : </p></label> 
+             <input id="start_date" type="date" min="" name="bgng_ymd"  onchange="vaildfunc()">
+             <label for="end_date"><p>외박 종료 기간 : </p></label> 
+             <input id="end_date" type="date" name="end_ymd" >
+             <select name="mvn_rcrt_no" hidden>
+                <option value="202307" disabled>2023년 2학기</option>
+                <option value="202403" >2024년 1학기</option>
+              </select>
+          </div>
+
+          <div class="ob_apply_content">
+            <h1>외박 사유</h1>
+            <textarea name="ob_rsn" ></textarea>
+          </div>
+
+          <div class="ob_apply_footer">
+              <h3>위 본인은 학생기숙사 관리자에게 외박 신청을 하오니 허가 해주시기 바랍니다.</h3>
+          </div>
+
+            <input type="submit" value="신청하기">
+         
+  
+      </div>
+
+
+    </form>
+
+    </section>
+</body>
+</html>
+
+<script>
+ 
+      var startDate = document.getElementById("start_date");
+      
+      var today = new Date().toISOString().split('T')[0];
+
+      startDate.setAttribute("min", today);
+      
+
+      function vaildfunc(){
+        var startDate = document.getElementById("start_date");
+        var endDate = document.getElementById("end_date");
+        endDate.setAttribute("min", startDate.value);
+      }
+
+      
+</script>
+
+
+<style >
+  body{
+    background-color:  rgb(173, 233, 213);
+  }
+
+  #ob_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .ob_apply_container > div:first-child{
+    border-top: 20px solid rgb(60, 161, 128);
+    
+  }
+
+  .ob_apply_header > h1{
+    font-size: 36px;
+  }
+  .ob_apply_container > div{
+    border-radius: 15px;
+    width: 1000px;
+    padding: 1% 5%;
+    margin-bottom: 20px;
+    background-color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  }
+  .ob_apply_user{
+    border-left: 15px solid rgb(60, 161, 128); 
+  }
+  .ob_apply_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ob_apply_content{
+    border-left: 15px solid rgb(60, 161, 128); 
+  }
+  .ob_apply_content > textarea {
+    width: 100%;
+    height: 200px;
+    border: 3px solid rgb(60, 161, 128);
+    border-radius: 15px;
+    padding: 30px;
+    font-size: 24px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  .ob_apply_content > textarea:focus{
+    outline: none;
+    border: 3px solid black;
+  }
+
+  .ob_apply_content h1{
+    width: 100%;
+    text-align: left;
+  }
+
+  .ob_apply_container input[type="submit"]{
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(60, 161, 128);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+  }
+  #end_date{
+    margin-bottom: 15px;
+  }
+  
+
+</style>

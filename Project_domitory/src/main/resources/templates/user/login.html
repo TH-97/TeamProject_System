@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+ <link rel="stylesheet" href="/css/user_login.css">
+</head>
+
+<body>
+	<div>
+		<p style="font-size: 40px; text-align: center; margin-top: 100px; font-weight: 700; color: #001d66; letter-spacing: 0.3em;">중정대학교 기숙사</p>
+	</div>
+	<div class="box">
+		<div class="loginLogo">Login</div>
+		<div class="form">
+			<div class="id">
+				<form action="/loginForm" method="post">
+					<input class="input" type="text" name="user_id" placeholder="아이디를 입력하세요">
+					<input class="input" type="password" name="user_pw" placeholder="비밀번호를 입력하세요">
+					<div>
+
+					<input  style="margin: 0; padding: 0;width: 20px" type="checkbox" name="remember-me">
+
+					<p>자동로그인</p>
+					</div>
+					<input class="input" type="submit" value="로그인">
+				</form>
+				[[${msg}]]
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/allList.css">
+</head>
+<body>
+		<div id="listArea">
+
+		<table style="margin-top: 30px; width: 100%;">
+			<tr>
+				<th>입주자 벌점 내역 조회</th>
+			</tr>
+
+			<tr>
+				<td>
+					<div id="detailsList">
+
+
+						<table id="ListTable">
+
+							<thead>
+					<tr>
+						<th>번호</th>
+						<th>입주 모집 번호</th>
+						<th>이름</th>
+						<th>학번</th>
+						<th>규칙 번호</th>
+						<th>규칙 사유</th>
+						<th>벌점 점수</th>
+						<th>벌점 부과 날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="vo : ${penalVO}">
+						<td>[[${vo.rew_no}]]</td>
+						<td>[[${vo.mvn_rcrt_no}]]</td>
+						<td>[[${vo.user_nm}]]</td>
+						<td>[[${vo.stud_no}]]</td>
+						<td>[[${vo.rule_no}]]</td>
+						<td>[[${vo.rule_dtl}]]</td>
+						<td>[[${vo.rew_scr}]]</td>
+						<td>[[${vo.rew_date}]]</td>
+					</tr>
+				</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
